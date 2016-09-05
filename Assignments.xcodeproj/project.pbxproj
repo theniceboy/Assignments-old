@@ -7,9 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		631A7E131D7D0542009D7CA7 /* FrmAssignmentList_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631A7E121D7D0542009D7CA7 /* FrmAssignmentList_Cell.swift */; };
+		631A7E521D7D0A68009D7CA7 /* uiviewcoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631A7E511D7D0A68009D7CA7 /* uiviewcoViewController.swift */; };
+		63A5AF6B1D7CB6A500EF3028 /* Gib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5AF6A1D7CB6A500EF3028 /* Gib.swift */; };
+		63A5AF971D7CBD3100EF3028 /* TKAnimatedCheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5AF961D7CBD3100EF3028 /* TKAnimatedCheckButton.swift */; };
+		63A8AB8E1D7CC133002468E1 /* Assignments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8AB8D1D7CC133002468E1 /* Assignments.swift */; };
+		63A8AB911D7CC57E002468E1 /* FrmAssignmentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8AB901D7CC57E002468E1 /* FrmAssignmentList.swift */; };
+		63A8ABA21D7CC7FA002468E1 /* Actual360.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8AB931D7CC7FA002468E1 /* Actual360.swift */; };
+		63A8ABA31D7CC7FA002468E1 /* Actual365Fixed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8AB941D7CC7FA002468E1 /* Actual365Fixed.swift */; };
+		63A8ABA41D7CC7FA002468E1 /* ActualActual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8AB951D7CC7FA002468E1 /* ActualActual.swift */; };
+		63A8ABA51D7CC7FA002468E1 /* BizDayRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8AB961D7CC7FA002468E1 /* BizDayRule.swift */; };
+		63A8ABA61D7CC7FA002468E1 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8AB971D7CC7FA002468E1 /* Calendar.swift */; };
+		63A8ABA71D7CC7FA002468E1 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8AB981D7CC7FA002468E1 /* Date.swift */; };
+		63A8ABA81D7CC7FA002468E1 /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8AB991D7CC7FA002468E1 /* DateHelpers.swift */; };
+		63A8ABA91D7CC7FA002468E1 /* DayCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8AB9A1D7CC7FA002468E1 /* DayCounter.swift */; };
+		63A8ABAA1D7CC7FA002468E1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63A8AB9B1D7CC7FA002468E1 /* Info.plist */; };
+		63A8ABAB1D7CC7FA002468E1 /* NL365.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8AB9C1D7CC7FA002468E1 /* NL365.swift */; };
+		63A8ABAC1D7CC7FA002468E1 /* TargetCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8AB9D1D7CC7FA002468E1 /* TargetCalendar.swift */; };
+		63A8ABAD1D7CC7FA002468E1 /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8AB9E1D7CC7FA002468E1 /* Term.swift */; };
+		63A8ABAE1D7CC7FA002468E1 /* Thirty360.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8AB9F1D7CC7FA002468E1 /* Thirty360.swift */; };
+		63A8ABAF1D7CC7FA002468E1 /* UnitedKingdomCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8ABA01D7CC7FA002468E1 /* UnitedKingdomCalendar.swift */; };
+		63A8ABB01D7CC7FA002468E1 /* UnitedStatesCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8ABA11D7CC7FA002468E1 /* UnitedStatesCalendar.swift */; };
 		63D12D351D7C02100018651E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D12D341D7C02100018651E /* AppDelegate.swift */; };
-		63D12D371D7C02100018651E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D12D361D7C02100018651E /* MasterViewController.swift */; };
-		63D12D391D7C02100018651E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D12D381D7C02100018651E /* DetailViewController.swift */; };
+		63D12D371D7C02100018651E /* FrmClassList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D12D361D7C02100018651E /* FrmClassList.swift */; };
 		63D12D3C1D7C02100018651E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63D12D3A1D7C02100018651E /* Main.storyboard */; };
 		63D12D3E1D7C02100018651E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63D12D3D1D7C02100018651E /* Assets.xcassets */; };
 		63D12D411D7C02100018651E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63D12D3F1D7C02100018651E /* LaunchScreen.storyboard */; };
@@ -35,10 +55,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		631A7E121D7D0542009D7CA7 /* FrmAssignmentList_Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrmAssignmentList_Cell.swift; sourceTree = "<group>"; };
+		631A7E511D7D0A68009D7CA7 /* uiviewcoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = uiviewcoViewController.swift; sourceTree = "<group>"; };
+		63A5AF6A1D7CB6A500EF3028 /* Gib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gib.swift; sourceTree = "<group>"; };
+		63A5AF961D7CBD3100EF3028 /* TKAnimatedCheckButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKAnimatedCheckButton.swift; sourceTree = "<group>"; };
+		63A8AB8D1D7CC133002468E1 /* Assignments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignments.swift; sourceTree = "<group>"; };
+		63A8AB901D7CC57E002468E1 /* FrmAssignmentList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrmAssignmentList.swift; sourceTree = "<group>"; };
+		63A8AB931D7CC7FA002468E1 /* Actual360.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actual360.swift; sourceTree = "<group>"; };
+		63A8AB941D7CC7FA002468E1 /* Actual365Fixed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actual365Fixed.swift; sourceTree = "<group>"; };
+		63A8AB951D7CC7FA002468E1 /* ActualActual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActualActual.swift; sourceTree = "<group>"; };
+		63A8AB961D7CC7FA002468E1 /* BizDayRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BizDayRule.swift; sourceTree = "<group>"; };
+		63A8AB971D7CC7FA002468E1 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
+		63A8AB981D7CC7FA002468E1 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		63A8AB991D7CC7FA002468E1 /* DateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
+		63A8AB9A1D7CC7FA002468E1 /* DayCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCounter.swift; sourceTree = "<group>"; };
+		63A8AB9B1D7CC7FA002468E1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63A8AB9C1D7CC7FA002468E1 /* NL365.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NL365.swift; sourceTree = "<group>"; };
+		63A8AB9D1D7CC7FA002468E1 /* TargetCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetCalendar.swift; sourceTree = "<group>"; };
+		63A8AB9E1D7CC7FA002468E1 /* Term.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
+		63A8AB9F1D7CC7FA002468E1 /* Thirty360.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thirty360.swift; sourceTree = "<group>"; };
+		63A8ABA01D7CC7FA002468E1 /* UnitedKingdomCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitedKingdomCalendar.swift; sourceTree = "<group>"; };
+		63A8ABA11D7CC7FA002468E1 /* UnitedStatesCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitedStatesCalendar.swift; sourceTree = "<group>"; };
 		63D12D311D7C02100018651E /* Assignments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63D12D341D7C02100018651E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		63D12D361D7C02100018651E /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		63D12D381D7C02100018651E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		63D12D361D7C02100018651E /* FrmClassList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrmClassList.swift; sourceTree = "<group>"; };
 		63D12D3B1D7C02100018651E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		63D12D3D1D7C02100018651E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63D12D401D7C02100018651E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,6 +116,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		631A7E141D7D054D009D7CA7 /* Forms */ = {
+			isa = PBXGroup;
+			children = (
+				63D12D361D7C02100018651E /* FrmClassList.swift */,
+				631A7E511D7D0A68009D7CA7 /* uiviewcoViewController.swift */,
+				63A8AB901D7CC57E002468E1 /* FrmAssignmentList.swift */,
+				631A7E121D7D0542009D7CA7 /* FrmAssignmentList_Cell.swift */,
+			);
+			name = Forms;
+			sourceTree = "<group>";
+		};
+		63A5AF6C1D7CB84D00EF3028 /* Third-Parties */ = {
+			isa = PBXGroup;
+			children = (
+				63A8AB921D7CC7FA002468E1 /* SwiftDate */,
+				63A5AF961D7CBD3100EF3028 /* TKAnimatedCheckButton.swift */,
+			);
+			name = "Third-Parties";
+			sourceTree = "<group>";
+		};
+		63A8AB8F1D7CC274002468E1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				63A8AB8D1D7CC133002468E1 /* Assignments.swift */,
+				63A5AF6A1D7CB6A500EF3028 /* Gib.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		63A8AB921D7CC7FA002468E1 /* SwiftDate */ = {
+			isa = PBXGroup;
+			children = (
+				63A8AB931D7CC7FA002468E1 /* Actual360.swift */,
+				63A8AB941D7CC7FA002468E1 /* Actual365Fixed.swift */,
+				63A8AB951D7CC7FA002468E1 /* ActualActual.swift */,
+				63A8AB961D7CC7FA002468E1 /* BizDayRule.swift */,
+				63A8AB971D7CC7FA002468E1 /* Calendar.swift */,
+				63A8AB981D7CC7FA002468E1 /* Date.swift */,
+				63A8AB991D7CC7FA002468E1 /* DateHelpers.swift */,
+				63A8AB9A1D7CC7FA002468E1 /* DayCounter.swift */,
+				63A8AB9B1D7CC7FA002468E1 /* Info.plist */,
+				63A8AB9C1D7CC7FA002468E1 /* NL365.swift */,
+				63A8AB9D1D7CC7FA002468E1 /* TargetCalendar.swift */,
+				63A8AB9E1D7CC7FA002468E1 /* Term.swift */,
+				63A8AB9F1D7CC7FA002468E1 /* Thirty360.swift */,
+				63A8ABA01D7CC7FA002468E1 /* UnitedKingdomCalendar.swift */,
+				63A8ABA11D7CC7FA002468E1 /* UnitedStatesCalendar.swift */,
+			);
+			path = SwiftDate;
+			sourceTree = "<group>";
+		};
 		63D12D281D7C02100018651E = {
 			isa = PBXGroup;
 			children = (
@@ -100,12 +191,13 @@
 			isa = PBXGroup;
 			children = (
 				63D12D341D7C02100018651E /* AppDelegate.swift */,
-				63D12D361D7C02100018651E /* MasterViewController.swift */,
-				63D12D381D7C02100018651E /* DetailViewController.swift */,
 				63D12D3A1D7C02100018651E /* Main.storyboard */,
 				63D12D3D1D7C02100018651E /* Assets.xcassets */,
 				63D12D3F1D7C02100018651E /* LaunchScreen.storyboard */,
 				63D12D421D7C02100018651E /* Info.plist */,
+				631A7E141D7D054D009D7CA7 /* Forms */,
+				63A8AB8F1D7CC274002468E1 /* Classes */,
+				63A5AF6C1D7CB84D00EF3028 /* Third-Parties */,
 			);
 			path = Assignments;
 			sourceTree = "<group>";
@@ -196,6 +288,7 @@
 				TargetAttributes = {
 					63D12D301D7C02100018651E = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = FLLKWS94W7;
 					};
 					63D12D461D7C02100018651E = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -232,6 +325,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63A8ABAA1D7CC7FA002468E1 /* Info.plist in Resources */,
 				63D12D411D7C02100018651E /* LaunchScreen.storyboard in Resources */,
 				63D12D3E1D7C02100018651E /* Assets.xcassets in Resources */,
 				63D12D3C1D7C02100018651E /* Main.storyboard in Resources */,
@@ -259,9 +353,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63D12D391D7C02100018651E /* DetailViewController.swift in Sources */,
-				63D12D371D7C02100018651E /* MasterViewController.swift in Sources */,
+				63A8ABB01D7CC7FA002468E1 /* UnitedStatesCalendar.swift in Sources */,
+				63A8ABA31D7CC7FA002468E1 /* Actual365Fixed.swift in Sources */,
+				63A8ABA91D7CC7FA002468E1 /* DayCounter.swift in Sources */,
+				63A8AB8E1D7CC133002468E1 /* Assignments.swift in Sources */,
+				63A8ABA81D7CC7FA002468E1 /* DateHelpers.swift in Sources */,
+				63A8ABA41D7CC7FA002468E1 /* ActualActual.swift in Sources */,
+				63A8ABAE1D7CC7FA002468E1 /* Thirty360.swift in Sources */,
+				63A8AB911D7CC57E002468E1 /* FrmAssignmentList.swift in Sources */,
+				63D12D371D7C02100018651E /* FrmClassList.swift in Sources */,
+				63A8ABA51D7CC7FA002468E1 /* BizDayRule.swift in Sources */,
+				63A8ABA61D7CC7FA002468E1 /* Calendar.swift in Sources */,
+				63A5AF971D7CBD3100EF3028 /* TKAnimatedCheckButton.swift in Sources */,
+				63A8ABAD1D7CC7FA002468E1 /* Term.swift in Sources */,
+				631A7E521D7D0A68009D7CA7 /* uiviewcoViewController.swift in Sources */,
+				63A8ABA21D7CC7FA002468E1 /* Actual360.swift in Sources */,
+				63A8ABAF1D7CC7FA002468E1 /* UnitedKingdomCalendar.swift in Sources */,
+				63A5AF6B1D7CB6A500EF3028 /* Gib.swift in Sources */,
+				63A8ABA71D7CC7FA002468E1 /* Date.swift in Sources */,
+				63A8ABAB1D7CC7FA002468E1 /* NL365.swift in Sources */,
 				63D12D351D7C02100018651E /* AppDelegate.swift in Sources */,
+				631A7E131D7D0542009D7CA7 /* FrmAssignmentList_Cell.swift in Sources */,
+				63A8ABAC1D7CC7FA002468E1 /* TargetCalendar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,10 +518,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Assignments/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cc.cwsoft.Assignments;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -416,10 +533,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Assignments/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cc.cwsoft.Assignments;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -488,6 +609,7 @@
 				63D12D5D1D7C02100018651E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		63D12D5E1D7C02100018651E /* Build configuration list for PBXNativeTarget "AssignmentsTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +618,7 @@
 				63D12D601D7C02100018651E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		63D12D611D7C02100018651E /* Build configuration list for PBXNativeTarget "AssignmentsUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +627,7 @@
 				63D12D631D7C02100018651E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
