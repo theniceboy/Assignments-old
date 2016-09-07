@@ -104,7 +104,8 @@ public class Date {
 //        var components = calendar.components(.CalendarUnitDay | .CalendarUnitMonth | .CalendarUnitYear, fromDate: date)
 //        return Date(year: components.year, month: components.month, day: components.day)
         
-        let dt = NSDate()
+        let dt: NSDate = nstoday()
+
         let y = Int(dt.description[0..<4])!
         let m = Int(dt.description[5..<7])!
         let d = Int(dt.description[8..<10])!

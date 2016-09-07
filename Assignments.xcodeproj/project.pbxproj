@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		631A7E131D7D0542009D7CA7 /* FrmAssignmentList_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631A7E121D7D0542009D7CA7 /* FrmAssignmentList_Cell.swift */; };
 		631A7E521D7D0A68009D7CA7 /* uiviewcoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631A7E511D7D0A68009D7CA7 /* uiviewcoViewController.swift */; };
+		63641C731D7E78110083A9E6 /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641C701D7E78110083A9E6 /* SkyFloatingLabelTextField.swift */; };
+		63641C741D7E78110083A9E6 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641C711D7E78110083A9E6 /* SkyFloatingLabelTextFieldWithIcon.swift */; };
+		63641C751D7E78110083A9E6 /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641C721D7E78110083A9E6 /* UITextField+fixCaretPosition.swift */; };
+		63641C771D7E84920083A9E6 /* FrmNewAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641C761D7E84920083A9E6 /* FrmNewAssignment.swift */; };
+		637643C91D7F83790093B774 /* ZFRippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637643C81D7F83790093B774 /* ZFRippleButton.swift */; };
 		63A5AF6B1D7CB6A500EF3028 /* Gib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5AF6A1D7CB6A500EF3028 /* Gib.swift */; };
 		63A5AF971D7CBD3100EF3028 /* TKAnimatedCheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5AF961D7CBD3100EF3028 /* TKAnimatedCheckButton.swift */; };
 		63A8AB8E1D7CC133002468E1 /* Assignments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8AB8D1D7CC133002468E1 /* Assignments.swift */; };
@@ -35,6 +40,8 @@
 		63D12D411D7C02100018651E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63D12D3F1D7C02100018651E /* LaunchScreen.storyboard */; };
 		63D12D4C1D7C02100018651E /* AssignmentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D12D4B1D7C02100018651E /* AssignmentsTests.swift */; };
 		63D12D571D7C02100018651E /* AssignmentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D12D561D7C02100018651E /* AssignmentsUITests.swift */; };
+		63D51C831D7FBD1000CA5801 /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D51C821D7FBD1000CA5801 /* General.swift */; };
+		63D51C851D7FC27A00CA5801 /* Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D51C841D7FC27A00CA5801 /* Hash.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +64,11 @@
 /* Begin PBXFileReference section */
 		631A7E121D7D0542009D7CA7 /* FrmAssignmentList_Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrmAssignmentList_Cell.swift; sourceTree = "<group>"; };
 		631A7E511D7D0A68009D7CA7 /* uiviewcoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = uiviewcoViewController.swift; sourceTree = "<group>"; };
+		63641C701D7E78110083A9E6 /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
+		63641C711D7E78110083A9E6 /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
+		63641C721D7E78110083A9E6 /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
+		63641C761D7E84920083A9E6 /* FrmNewAssignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrmNewAssignment.swift; sourceTree = "<group>"; };
+		637643C81D7F83790093B774 /* ZFRippleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFRippleButton.swift; sourceTree = "<group>"; };
 		63A5AF6A1D7CB6A500EF3028 /* Gib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gib.swift; sourceTree = "<group>"; };
 		63A5AF961D7CBD3100EF3028 /* TKAnimatedCheckButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKAnimatedCheckButton.swift; sourceTree = "<group>"; };
 		63A8AB8D1D7CC133002468E1 /* Assignments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignments.swift; sourceTree = "<group>"; };
@@ -89,6 +101,8 @@
 		63D12D521D7C02100018651E /* AssignmentsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssignmentsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63D12D561D7C02100018651E /* AssignmentsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsUITests.swift; sourceTree = "<group>"; };
 		63D12D581D7C02100018651E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63D51C821D7FBD1000CA5801 /* General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = General.swift; sourceTree = "<group>"; };
+		63D51C841D7FC27A00CA5801 /* Hash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hash.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,15 +137,29 @@
 				631A7E511D7D0A68009D7CA7 /* uiviewcoViewController.swift */,
 				63A8AB901D7CC57E002468E1 /* FrmAssignmentList.swift */,
 				631A7E121D7D0542009D7CA7 /* FrmAssignmentList_Cell.swift */,
+				63641C761D7E84920083A9E6 /* FrmNewAssignment.swift */,
 			);
 			name = Forms;
+			sourceTree = "<group>";
+		};
+		63641C6F1D7E78110083A9E6 /* SkyFloatingLabelTextField */ = {
+			isa = PBXGroup;
+			children = (
+				63641C701D7E78110083A9E6 /* SkyFloatingLabelTextField.swift */,
+				63641C711D7E78110083A9E6 /* SkyFloatingLabelTextFieldWithIcon.swift */,
+				63641C721D7E78110083A9E6 /* UITextField+fixCaretPosition.swift */,
+			);
+			name = SkyFloatingLabelTextField;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		63A5AF6C1D7CB84D00EF3028 /* Third-Parties */ = {
 			isa = PBXGroup;
 			children = (
+				63641C6F1D7E78110083A9E6 /* SkyFloatingLabelTextField */,
 				63A8AB921D7CC7FA002468E1 /* SwiftDate */,
 				63A5AF961D7CBD3100EF3028 /* TKAnimatedCheckButton.swift */,
+				637643C81D7F83790093B774 /* ZFRippleButton.swift */,
 			);
 			name = "Third-Parties";
 			sourceTree = "<group>";
@@ -141,6 +169,8 @@
 			children = (
 				63A8AB8D1D7CC133002468E1 /* Assignments.swift */,
 				63A5AF6A1D7CB6A500EF3028 /* Gib.swift */,
+				63D51C821D7FBD1000CA5801 /* General.swift */,
+				63D51C841D7FC27A00CA5801 /* Hash.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -353,27 +383,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63D51C851D7FC27A00CA5801 /* Hash.swift in Sources */,
+				63641C751D7E78110083A9E6 /* UITextField+fixCaretPosition.swift in Sources */,
 				63A8ABB01D7CC7FA002468E1 /* UnitedStatesCalendar.swift in Sources */,
 				63A8ABA31D7CC7FA002468E1 /* Actual365Fixed.swift in Sources */,
 				63A8ABA91D7CC7FA002468E1 /* DayCounter.swift in Sources */,
 				63A8AB8E1D7CC133002468E1 /* Assignments.swift in Sources */,
 				63A8ABA81D7CC7FA002468E1 /* DateHelpers.swift in Sources */,
+				63641C731D7E78110083A9E6 /* SkyFloatingLabelTextField.swift in Sources */,
 				63A8ABA41D7CC7FA002468E1 /* ActualActual.swift in Sources */,
 				63A8ABAE1D7CC7FA002468E1 /* Thirty360.swift in Sources */,
 				63A8AB911D7CC57E002468E1 /* FrmAssignmentList.swift in Sources */,
 				63D12D371D7C02100018651E /* FrmClassList.swift in Sources */,
 				63A8ABA51D7CC7FA002468E1 /* BizDayRule.swift in Sources */,
 				63A8ABA61D7CC7FA002468E1 /* Calendar.swift in Sources */,
+				63641C771D7E84920083A9E6 /* FrmNewAssignment.swift in Sources */,
 				63A5AF971D7CBD3100EF3028 /* TKAnimatedCheckButton.swift in Sources */,
+				637643C91D7F83790093B774 /* ZFRippleButton.swift in Sources */,
 				63A8ABAD1D7CC7FA002468E1 /* Term.swift in Sources */,
 				631A7E521D7D0A68009D7CA7 /* uiviewcoViewController.swift in Sources */,
 				63A8ABA21D7CC7FA002468E1 /* Actual360.swift in Sources */,
 				63A8ABAF1D7CC7FA002468E1 /* UnitedKingdomCalendar.swift in Sources */,
 				63A5AF6B1D7CB6A500EF3028 /* Gib.swift in Sources */,
 				63A8ABA71D7CC7FA002468E1 /* Date.swift in Sources */,
+				63641C741D7E78110083A9E6 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
 				63A8ABAB1D7CC7FA002468E1 /* NL365.swift in Sources */,
 				63D12D351D7C02100018651E /* AppDelegate.swift in Sources */,
 				631A7E131D7D0542009D7CA7 /* FrmAssignmentList_Cell.swift in Sources */,
+				63D51C831D7FBD1000CA5801 /* General.swift in Sources */,
 				63A8ABAC1D7CC7FA002468E1 /* TargetCalendar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

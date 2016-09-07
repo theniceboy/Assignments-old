@@ -17,6 +17,8 @@ class FrmAssignmentList_Cell: UITableViewCell {
     }
     @IBOutlet weak var vMain: UIView!
     @IBOutlet weak var vTk: UIView!
+    @IBOutlet weak var lbDesc: UILabel!
+    
     var btnChecked: TKAnimatedCheckButton!
     
     var btnCheckNotAddYet = true
@@ -25,7 +27,7 @@ class FrmAssignmentList_Cell: UITableViewCell {
         if (btnCheckNotAddYet) {
             btnChecked = TKAnimatedCheckButton (frame: vTk.frame)
             btnChecked.addTarget(self, action: #selector(FrmAssignmentList_Cell.btnCheckTapped(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-            btnChecked.color = cblue.CGColor
+            btnChecked.color = csystemdarkgray.CGColor
             btnChecked.skeletonColor = clightgray.CGColor
             vMain.addSubview(btnChecked)
             btnCheckNotAddYet = false
@@ -35,7 +37,7 @@ class FrmAssignmentList_Cell: UITableViewCell {
     @IBAction func btnCheckTapped(sender: AnyObject) {
         if (btnChecked.checked) {
             UIView.animateWithDuration(0.6, animations: { () -> Void in
-                self.btnChecked.color = cblue.CGColor
+                self.btnChecked.color = csystemdarkgray.CGColor
             })
         } else {
             UIView.animateWithDuration(0.6, animations: { () -> Void in
