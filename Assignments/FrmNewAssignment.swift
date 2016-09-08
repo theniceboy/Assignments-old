@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate {
     
     // MARK: - IBOutlets
 
@@ -28,7 +28,8 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
     // MARK: - Variables & Constants
     
     let assignmentType: [String] = ["Homework", "Quiz & Test", "Project", "Presentation", "Study", "Others"]
-    let reminderType: [String] = ["Night before", "2 Nights Before", "3 Nights Before", "Date due"]
+    let reminderType: [String] = ["Night before", "2 Nights Before", "3 Nights Before", "Date due", "Custom"]
+    let repeatType: [String] = ["Everyday", "Every"]
     
     // MARK: - Override functions
     
@@ -41,11 +42,12 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
         lbDueDate_Day.text = "Due " + dateToString(date)
         cvScrollView.contentSize = CGSize(width: vMain.bounds.width, height: 800)
         
-        // UIPicker
+        // Delegates
         pType.delegate = self
         pType.dataSource = self
         pReminder.delegate = self
         pReminder.dataSource = self
+        tvNotes.delegate = self
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -63,7 +65,7 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
         if (pickerView == pType) {
             return 6
         } else if (pickerView == pReminder) {
-            return 4
+            return 5
         } else {
             return 0
         }
@@ -90,6 +92,13 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
         } else if (pickerView == pReminder) {
             
         }
+    }
+    
+    // MARK: - UITextView
+    
+    func textViewDidChange(textView: UITextView) {
+        self.lbNotes.hidden = (self.tvNotes.text != "")
+        
     }
     
     // MARK: - tapGestures
