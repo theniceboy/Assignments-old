@@ -150,6 +150,7 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
         selector.optionStyles.showMonth(false)
         selector.optionStyles.showYear(false)
         selector.optionStyles.showTime(false)
+        //selector.optionStyles.
         presentViewController(selector, animated: true, completion: nil)
     }
     
@@ -161,7 +162,7 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
         if (Date.today() >= dt) {
             lbDueDate_Day.textColor = cred
         } else {
-            lbDueDate_Day.textColor = cblack
+            lbDueDate_Day.textColor = cblue
         }
     }
 
