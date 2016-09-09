@@ -171,7 +171,7 @@
         <!--Frm New Assignment-->
         <scene sceneID="ss8-ai-bG1">
             <objects>
-                <viewController id="d7g-p1-Ulo" customClass="FrmNewAssignment" customModule="Assignments" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WWCalendarTimeSelectorStoryboardBundle" id="d7g-p1-Ulo" customClass="FrmNewAssignment" customModule="Assignments" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UFT-AZ-hGk"/>
                         <viewControllerLayoutGuide type="bottom" id="iWT-mv-cDy"/>
@@ -239,45 +239,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9n-gh-gzk" userLabel="vDueDate">
-                                                <rect key="frame" x="15" y="237" width="330" height="150"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hS-CJ-8D9">
-                                                        <rect key="frame" x="0.0" y="0.0" width="330.5" height="22"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="hNB-v4-bLG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="330.5" height="170"/>
-                                                        <date key="date" timeIntervalSinceReferenceDate="494895156.63953203">
-                                                            <!--2016-09-06 22:52:36 +0000-->
-                                                        </date>
-                                                        <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
-                                                            <!--1970-01-01 11:00:00 +0000-->
-                                                        </date>
-                                                        <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
-                                                            <!--2037-12-31 11:00:00 +0000-->
-                                                        </date>
-                                                        <connections>
-                                                            <action selector="dpDueDate_ValueChanged:" destination="d7g-p1-Ulo" eventType="valueChanged" id="u1E-2M-IeY"/>
-                                                        </connections>
-                                                    </datePicker>
-                                                </subviews>
-                                                <color key="backgroundColor" red="0.26274509800000001" green="0.57254901960000004" blue="0.93725490199999995" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstItem="2hS-CJ-8D9" firstAttribute="top" secondItem="D9n-gh-gzk" secondAttribute="top" id="8mT-Kp-6xs"/>
-                                                    <constraint firstAttribute="trailing" secondItem="2hS-CJ-8D9" secondAttribute="trailing" id="di0-qb-j32"/>
-                                                    <constraint firstItem="hNB-v4-bLG" firstAttribute="leading" secondItem="D9n-gh-gzk" secondAttribute="leading" id="g4b-sh-aED"/>
-                                                    <constraint firstAttribute="height" constant="150" id="gGN-Yk-niQ"/>
-                                                    <constraint firstItem="2hS-CJ-8D9" firstAttribute="leading" secondItem="D9n-gh-gzk" secondAttribute="leading" id="oQf-d1-g0e"/>
-                                                    <constraint firstItem="hNB-v4-bLG" firstAttribute="top" secondItem="D9n-gh-gzk" secondAttribute="top" id="uEI-VO-gx5"/>
-                                                    <constraint firstAttribute="bottom" secondItem="hNB-v4-bLG" secondAttribute="bottom" constant="-20" id="vld-RV-V2K"/>
-                                                    <constraint firstAttribute="trailing" secondItem="hNB-v4-bLG" secondAttribute="trailing" id="xRW-Ef-AvG"/>
-                                                </constraints>
-                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E7d-KI-YYo" userLabel="vType">
-                                                <rect key="frame" x="15" y="395" width="330" height="150"/>
+                                                <rect key="frame" x="15" y="320" width="330" height="150"/>
                                                 <subviews>
                                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ftq-6t-0at">
                                                         <rect key="frame" x="0.0" y="20" width="324" height="130"/>
@@ -415,6 +378,52 @@
                                                     <!--2016-09-08 23:11:22 +0000-->
                                                 </date>
                                             </datePicker>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9n-gh-gzk" userLabel="vDueDate">
+                                                <rect key="frame" x="15" y="237" width="330" height="75"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hS-CJ-8D9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="330.5" height="22"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqu-kh-u3G" customClass="ZFRippleButton" customModule="Assignments" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="27" width="330" height="48"/>
+                                                        <color key="backgroundColor" red="0.26274509800000001" green="0.57254901960000004" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <state key="normal" title="Pick the Due date">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="buttonCornerRadius">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="rippleColor">
+                                                                <color key="value" red="0.20273917547235301" green="0.44790829714743546" blue="0.73595328282828287" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="shadowRippleEnable" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rippleOverBounds" value="NO"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="trackTouchLocation" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="rippleBackgroundColor">
+                                                                <color key="value" red="0.26274509800000001" green="0.57254901960000004" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="btnDatePicker_Tapped:" destination="d7g-p1-Ulo" eventType="touchUpInside" id="Bvi-VD-5Ia"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="2hS-CJ-8D9" firstAttribute="top" secondItem="D9n-gh-gzk" secondAttribute="top" id="8mT-Kp-6xs"/>
+                                                    <constraint firstAttribute="trailing" secondItem="oqu-kh-u3G" secondAttribute="trailing" id="KRi-zM-mz1"/>
+                                                    <constraint firstItem="oqu-kh-u3G" firstAttribute="leading" secondItem="D9n-gh-gzk" secondAttribute="leading" id="TyA-WN-naq"/>
+                                                    <constraint firstAttribute="trailing" secondItem="2hS-CJ-8D9" secondAttribute="trailing" id="di0-qb-j32"/>
+                                                    <constraint firstAttribute="height" constant="75" id="gGN-Yk-niQ"/>
+                                                    <constraint firstItem="oqu-kh-u3G" firstAttribute="top" secondItem="2hS-CJ-8D9" secondAttribute="bottom" constant="5" id="jEF-xX-CSS"/>
+                                                    <constraint firstItem="2hS-CJ-8D9" firstAttribute="leading" secondItem="D9n-gh-gzk" secondAttribute="leading" id="oQf-d1-g0e"/>
+                                                    <constraint firstAttribute="bottom" secondItem="oqu-kh-u3G" secondAttribute="bottom" id="phH-2w-9Pn"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -591,7 +600,6 @@
                     <connections>
                         <outlet property="blurReminder" destination="W7Y-ZT-VHv" id="nBG-7B-D0T"/>
                         <outlet property="cvScrollView" destination="RsF-aU-dow" id="I8T-pU-HxC"/>
-                        <outlet property="dpDueDate" destination="hNB-v4-bLG" id="U14-a3-bZa"/>
                         <outlet property="lbAssignmentType" destination="f4h-vs-6vL" id="Rfk-cU-bKl"/>
                         <outlet property="lbDueDate_Day" destination="2hS-CJ-8D9" id="E49-Dh-0Aw"/>
                         <outlet property="lbNotes" destination="Ylr-A3-XsK" id="nh8-GT-TaQ"/>

@@ -8,13 +8,12 @@
 
 import UIKit
 
-class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate {
+class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate, WWCalendarTimeSelectorProtocol {
     
     // MARK: - IBOutlets
 
     @IBOutlet weak var lbNotes: UILabel!
     @IBOutlet weak var tvNotes: UITextView!
-    @IBOutlet weak var dpDueDate: UIDatePicker!
     @IBOutlet weak var lbDueDate_Day: UILabel!
     @IBOutlet weak var cvScrollView: UIScrollView!
     @IBOutlet weak var vMain: UIView!
@@ -31,13 +30,15 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
     let reminderType: [String] = ["Night before", "2 Nights Before", "3 Nights Before", "Date due", "Custom"]
     let repeatType: [String] = ["Everyday", "Every"]
     
+    var superDUEDATE: NSDate = NSDate()
+    
     // MARK: - Override functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dpDueDate.date = NSCalendar.currentCalendar().dateByAddingUnit(.Day, value: 1, toDate: NSDate(), options: [])! // Tomorrow
+        superDUEDATE = NSCalendar.currentCalendar().dateByAddingUnit(.Day, value: 1, toDate: NSDate(), options: [])! // Tomorrow
         let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components([.Day , .Month , .Year], fromDate: dpDueDate.date)
+        let components = calendar.components([.Day , .Month , .Year], fromDate: superDUEDATE)
         let date: Date = Date(year : components.year, month : components.month, day : components.day)
         lbDueDate_Day.text = "Due " + dateToString(date)
         cvScrollView.contentSize = CGSize(width: vMain.bounds.width, height: 800)
@@ -140,10 +141,33 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
     @IBAction func btnAdd_Tapped(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    @IBAction func btnDatePicker_Tapped(sender: AnyObject) {
+        let selector = WWCalendarTimeSelector.instantiate()
+        selector.delegate = self
+        selector.optionCurrentDate = nstoday()
+        selector.optionStyles.showDateMonth(true)
+        selector.optionStyles.showMonth(false)
+        selector.optionStyles.showYear(false)
+        selector.optionStyles.showTime(false)
+        presentViewController(selector, animated: true, completion: nil)
+    }
+    
+    func WWCalendarTimeSelectorDone(selector: WWCalendarTimeSelector, date: NSDate) {
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Day , .Month , .Year], fromDate: date)
+        let dt: Date = Date(year : components.year, month : components.month, day : components.day)
+        lbDueDate_Day.text = "Due " + dateToString(dt)
+        if (Date.today() >= dt) {
+            lbDueDate_Day.textColor = cred
+        } else {
+            lbDueDate_Day.textColor = cblack
+        }
+    }
 
     @IBAction func dpDueDate_ValueChanged(sender: AnyObject) {
         let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components([.Day , .Month , .Year], fromDate: dpDueDate.date)
+        let components = calendar.components([.Day , .Month , .Year], fromDate: superDUEDATE)
         let date: Date = Date(year : components.year, month : components.month, day : components.day)
         lbDueDate_Day.text = "Due " + dateToString(date)
         if (Date.today() >= date) {
