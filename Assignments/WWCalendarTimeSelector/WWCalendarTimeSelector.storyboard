@@ -233,17 +233,17 @@
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WyW-5f-hIf">
-                                <rect key="frame" x="20" y="204" width="280" height="344"/>
+                                <rect key="frame" x="20" y="204" width="242" height="344"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5t-1q-LX1">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="306"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="242" height="306"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sdw-Mc-C2Q" customClass="WWClock" customModule="Assignments" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="280" height="306"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="242" height="306"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NEJ-YT-VaV">
-                                                <rect key="frame" x="0.0" y="0.0" width="280" height="306"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="242" height="306"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <connections>
@@ -252,7 +252,7 @@
                                                 </connections>
                                             </tableView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qdk-04-U5s">
-                                                <rect key="frame" x="0.0" y="0.0" width="280" height="306"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="242" height="306"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <connections>
@@ -261,18 +261,18 @@
                                                 </connections>
                                             </tableView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYP-fa-FFm">
-                                                <rect key="frame" x="0.0" y="0.0" width="280" height="306"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="242" height="306"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xuj-Cn-SHU">
-                                                        <rect key="frame" x="0.0" y="0.0" width="94" height="77"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="80.5" height="76.5"/>
                                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <connections>
                                                             <action selector="selectMonth:" destination="guU-fh-eOY" eventType="touchUpInside" id="skP-fO-kkp"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Alt-AJ-2PZ">
-                                                        <rect key="frame" x="94" y="0.0" width="93" height="77"/>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Alt-AJ-2PZ">
+                                                        <rect key="frame" x="87" y="0.0" width="86" height="76.5"/>
                                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <connections>
@@ -280,7 +280,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X19-oy-Nb0">
-                                                        <rect key="frame" x="187" y="0.0" width="93" height="77"/>
+                                                        <rect key="frame" x="161.5" y="0.0" width="80.5" height="76.5"/>
                                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <connections>
@@ -288,15 +288,15 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGd-hi-GxX">
-                                                        <rect key="frame" x="0.0" y="77" width="94" height="76"/>
+                                                        <rect key="frame" x="0.0" y="76.5" width="80.5" height="76.5"/>
                                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <connections>
                                                             <action selector="selectMonth:" destination="guU-fh-eOY" eventType="touchUpInside" id="nEc-Rs-tyQ"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ndk-2m-ka8">
-                                                        <rect key="frame" x="94" y="77" width="93" height="76"/>
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ndk-2m-ka8">
+                                                        <rect key="frame" x="87" y="76" width="86" height="76.5"/>
                                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <connections>
@@ -304,7 +304,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62Z-JC-wC8">
-                                                        <rect key="frame" x="187" y="77" width="93" height="76"/>
+                                                        <rect key="frame" x="161.5" y="76.5" width="80.5" height="76.5"/>
                                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <connections>
@@ -312,15 +312,15 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKB-av-MRd">
-                                                        <rect key="frame" x="0.0" y="153" width="94" height="77"/>
+                                                        <rect key="frame" x="0.0" y="153" width="80.5" height="76.5"/>
                                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <connections>
                                                             <action selector="selectMonth:" destination="guU-fh-eOY" eventType="touchUpInside" id="cs7-kc-CDa"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCZ-7M-0p7">
-                                                        <rect key="frame" x="94" y="153" width="93" height="77"/>
+                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCZ-7M-0p7">
+                                                        <rect key="frame" x="87" y="153" width="86" height="76.5"/>
                                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <connections>
@@ -328,7 +328,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g78-d3-UoT">
-                                                        <rect key="frame" x="187" y="153" width="93" height="77"/>
+                                                        <rect key="frame" x="161.5" y="153" width="80.5" height="76.5"/>
                                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <connections>
@@ -336,15 +336,15 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Y7-KA-CvM">
-                                                        <rect key="frame" x="0.0" y="230" width="94" height="76"/>
+                                                        <rect key="frame" x="0.0" y="229.5" width="80.5" height="76.5"/>
                                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <connections>
                                                             <action selector="selectMonth:" destination="guU-fh-eOY" eventType="touchUpInside" id="kZn-2r-OeP"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNk-jJ-iUN">
-                                                        <rect key="frame" x="94" y="230" width="93" height="76"/>
+                                                    <button opaque="NO" tag="10" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNk-jJ-iUN">
+                                                        <rect key="frame" x="87" y="229" width="86" height="76.5"/>
                                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <connections>
@@ -352,7 +352,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="US0-iz-4TE">
-                                                        <rect key="frame" x="187" y="230" width="93" height="76"/>
+                                                        <rect key="frame" x="161.5" y="229.5" width="80.5" height="76.5"/>
                                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <connections>
@@ -439,10 +439,10 @@
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHa-ht-de9">
-                                        <rect key="frame" x="0.0" y="306" width="280" height="38"/>
+                                        <rect key="frame" x="0.0" y="306" width="242" height="38"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbZ-dk-Lr7">
-                                                <rect key="frame" x="221" y="0.0" width="59" height="38"/>
+                                                <rect key="frame" x="183" y="0.0" width="59" height="38"/>
                                                 <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                                                 <state key="normal" title="Done">
                                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -498,7 +498,7 @@
                             <constraint firstItem="WyW-5f-hIf" firstAttribute="leading" secondItem="zMM-Fk-JLe" secondAttribute="leading" constant="20" id="C9D-y6-A1S"/>
                             <constraint firstItem="yZx-N2-yKn" firstAttribute="leading" secondItem="zMM-Fk-JLe" secondAttribute="leading" constant="20" id="P1f-9g-7aZ"/>
                             <constraint firstItem="yZx-N2-yKn" firstAttribute="top" secondItem="zMM-Fk-JLe" secondAttribute="top" constant="20" id="h15-uU-Vex"/>
-                            <constraint firstAttribute="trailing" secondItem="WyW-5f-hIf" secondAttribute="trailing" constant="20" id="qR1-d8-EI2"/>
+                            <constraint firstAttribute="trailing" secondItem="WyW-5f-hIf" secondAttribute="trailing" constant="58" id="qR1-d8-EI2"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
