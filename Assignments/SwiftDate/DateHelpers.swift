@@ -40,10 +40,11 @@ extension String {
         return -1
     }
 }
-
+/*
 extension Int {
     var days: Term { get { return Term(length: self, timeUnit: TimeUnit.Day) } }
     var weeks: Term { get { return Term(length: self, timeUnit: TimeUnit.Week) } }
     var months: Term { get { return Term(length: self, timeUnit: TimeUnit.Month) } }
     public var years: Term { get { return Term(length: self, timeUnit: TimeUnit.Year) } }
 }
+ */

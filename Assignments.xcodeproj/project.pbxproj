@@ -14,6 +14,14 @@
 		63641C751D7E78110083A9E6 /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641C721D7E78110083A9E6 /* UITextField+fixCaretPosition.swift */; };
 		63641C771D7E84920083A9E6 /* FrmNewAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641C761D7E84920083A9E6 /* FrmNewAssignment.swift */; };
 		637643C91D7F83790093B774 /* ZFRippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637643C81D7F83790093B774 /* ZFRippleButton.swift */; };
+		639F3DF21D82472500C926DD /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F3DEA1D82472500C926DD /* Duration.swift */; };
+		639F3DF31D82472500C926DD /* Int+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F3DEB1D82472500C926DD /* Int+Timepiece.swift */; };
+		639F3DF41D82472500C926DD /* NSCalendar+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F3DEC1D82472500C926DD /* NSCalendar+Timepiece.swift */; };
+		639F3DF51D82472500C926DD /* NSDate+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F3DED1D82472500C926DD /* NSDate+Timepiece.swift */; };
+		639F3DF61D82472500C926DD /* NSDateComponents+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F3DEE1D82472500C926DD /* NSDateComponents+Timepiece.swift */; };
+		639F3DF71D82472500C926DD /* String+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F3DEF1D82472500C926DD /* String+Timepiece.swift */; };
+		639F3DF81D82472500C926DD /* WWCalendarTimeSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 639F3DF01D82472500C926DD /* WWCalendarTimeSelector.storyboard */; };
+		639F3DF91D82472500C926DD /* WWCalendarTimeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F3DF11D82472500C926DD /* WWCalendarTimeSelector.swift */; };
 		63A5AF6B1D7CB6A500EF3028 /* Gib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5AF6A1D7CB6A500EF3028 /* Gib.swift */; };
 		63A5AF971D7CBD3100EF3028 /* TKAnimatedCheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5AF961D7CBD3100EF3028 /* TKAnimatedCheckButton.swift */; };
 		63A8AB8E1D7CC133002468E1 /* Assignments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8AB8D1D7CC133002468E1 /* Assignments.swift */; };
@@ -69,6 +77,14 @@
 		63641C721D7E78110083A9E6 /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
 		63641C761D7E84920083A9E6 /* FrmNewAssignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrmNewAssignment.swift; sourceTree = "<group>"; };
 		637643C81D7F83790093B774 /* ZFRippleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFRippleButton.swift; sourceTree = "<group>"; };
+		639F3DEA1D82472500C926DD /* Duration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
+		639F3DEB1D82472500C926DD /* Int+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Timepiece.swift"; sourceTree = "<group>"; };
+		639F3DEC1D82472500C926DD /* NSCalendar+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCalendar+Timepiece.swift"; sourceTree = "<group>"; };
+		639F3DED1D82472500C926DD /* NSDate+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Timepiece.swift"; sourceTree = "<group>"; };
+		639F3DEE1D82472500C926DD /* NSDateComponents+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateComponents+Timepiece.swift"; sourceTree = "<group>"; };
+		639F3DEF1D82472500C926DD /* String+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Timepiece.swift"; sourceTree = "<group>"; };
+		639F3DF01D82472500C926DD /* WWCalendarTimeSelector.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WWCalendarTimeSelector.storyboard; sourceTree = "<group>"; };
+		639F3DF11D82472500C926DD /* WWCalendarTimeSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WWCalendarTimeSelector.swift; sourceTree = "<group>"; };
 		63A5AF6A1D7CB6A500EF3028 /* Gib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gib.swift; sourceTree = "<group>"; };
 		63A5AF961D7CBD3100EF3028 /* TKAnimatedCheckButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKAnimatedCheckButton.swift; sourceTree = "<group>"; };
 		63A8AB8D1D7CC133002468E1 /* Assignments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignments.swift; sourceTree = "<group>"; };
@@ -153,9 +169,25 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		639F3DE91D82472500C926DD /* WWCalendarTimeSelector */ = {
+			isa = PBXGroup;
+			children = (
+				639F3DEA1D82472500C926DD /* Duration.swift */,
+				639F3DEB1D82472500C926DD /* Int+Timepiece.swift */,
+				639F3DEC1D82472500C926DD /* NSCalendar+Timepiece.swift */,
+				639F3DED1D82472500C926DD /* NSDate+Timepiece.swift */,
+				639F3DEE1D82472500C926DD /* NSDateComponents+Timepiece.swift */,
+				639F3DEF1D82472500C926DD /* String+Timepiece.swift */,
+				639F3DF01D82472500C926DD /* WWCalendarTimeSelector.storyboard */,
+				639F3DF11D82472500C926DD /* WWCalendarTimeSelector.swift */,
+			);
+			path = WWCalendarTimeSelector;
+			sourceTree = "<group>";
+		};
 		63A5AF6C1D7CB84D00EF3028 /* Third-Parties */ = {
 			isa = PBXGroup;
 			children = (
+				639F3DE91D82472500C926DD /* WWCalendarTimeSelector */,
 				63641C6F1D7E78110083A9E6 /* SkyFloatingLabelTextField */,
 				63A8AB921D7CC7FA002468E1 /* SwiftDate */,
 				63A5AF961D7CBD3100EF3028 /* TKAnimatedCheckButton.swift */,
@@ -356,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63A8ABAA1D7CC7FA002468E1 /* Info.plist in Resources */,
+				639F3DF81D82472500C926DD /* WWCalendarTimeSelector.storyboard in Resources */,
 				63D12D411D7C02100018651E /* LaunchScreen.storyboard in Resources */,
 				63D12D3E1D7C02100018651E /* Assets.xcassets in Resources */,
 				63D12D3C1D7C02100018651E /* Main.storyboard in Resources */,
@@ -383,8 +416,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				639F3DF71D82472500C926DD /* String+Timepiece.swift in Sources */,
 				63D51C851D7FC27A00CA5801 /* Hash.swift in Sources */,
 				63641C751D7E78110083A9E6 /* UITextField+fixCaretPosition.swift in Sources */,
+				639F3DF51D82472500C926DD /* NSDate+Timepiece.swift in Sources */,
 				63A8ABB01D7CC7FA002468E1 /* UnitedStatesCalendar.swift in Sources */,
 				63A8ABA31D7CC7FA002468E1 /* Actual365Fixed.swift in Sources */,
 				63A8ABA91D7CC7FA002468E1 /* DayCounter.swift in Sources */,
@@ -398,16 +433,21 @@
 				63A8ABA51D7CC7FA002468E1 /* BizDayRule.swift in Sources */,
 				63A8ABA61D7CC7FA002468E1 /* Calendar.swift in Sources */,
 				63641C771D7E84920083A9E6 /* FrmNewAssignment.swift in Sources */,
+				639F3DF21D82472500C926DD /* Duration.swift in Sources */,
+				639F3DF41D82472500C926DD /* NSCalendar+Timepiece.swift in Sources */,
 				63A5AF971D7CBD3100EF3028 /* TKAnimatedCheckButton.swift in Sources */,
 				637643C91D7F83790093B774 /* ZFRippleButton.swift in Sources */,
 				63A8ABAD1D7CC7FA002468E1 /* Term.swift in Sources */,
 				631A7E521D7D0A68009D7CA7 /* uiviewcoViewController.swift in Sources */,
+				639F3DF61D82472500C926DD /* NSDateComponents+Timepiece.swift in Sources */,
 				63A8ABA21D7CC7FA002468E1 /* Actual360.swift in Sources */,
 				63A8ABAF1D7CC7FA002468E1 /* UnitedKingdomCalendar.swift in Sources */,
 				63A5AF6B1D7CB6A500EF3028 /* Gib.swift in Sources */,
+				639F3DF91D82472500C926DD /* WWCalendarTimeSelector.swift in Sources */,
 				63A8ABA71D7CC7FA002468E1 /* Date.swift in Sources */,
 				63641C741D7E78110083A9E6 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
 				63A8ABAB1D7CC7FA002468E1 /* NL365.swift in Sources */,
+				639F3DF31D82472500C926DD /* Int+Timepiece.swift in Sources */,
 				63D12D351D7C02100018651E /* AppDelegate.swift in Sources */,
 				631A7E131D7D0542009D7CA7 /* FrmAssignmentList_Cell.swift in Sources */,
 				63D51C831D7FBD1000CA5801 /* General.swift in Sources */,
