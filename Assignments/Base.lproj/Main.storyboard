@@ -285,8 +285,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9w4-Ar-4aa" userLabel="vReminder">
                                                 <rect key="frame" x="354" y="477" width="331" height="100"/>
                                                 <subviews>
-                                                    <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vcn-8h-GvY">
-                                                        <rect key="frame" x="0.0" y="-10" width="331" height="120"/>
+                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vcn-8h-GvY">
+                                                        <rect key="frame" x="0.0" y="0.0" width="331" height="110"/>
                                                     </pickerView>
                                                     <visualEffectView opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W7Y-ZT-VHv">
                                                         <rect key="frame" x="0.0" y="0.0" width="331" height="100"/>
@@ -308,6 +308,7 @@
                                                     <constraint firstAttribute="bottom" secondItem="W7Y-ZT-VHv" secondAttribute="bottom" id="ODf-tm-nnE"/>
                                                     <constraint firstItem="W7Y-ZT-VHv" firstAttribute="top" secondItem="9w4-Ar-4aa" secondAttribute="top" id="YvY-wk-43D"/>
                                                     <constraint firstAttribute="height" constant="100" id="dBs-Qt-Ku5"/>
+                                                    <constraint firstItem="vcn-8h-GvY" firstAttribute="top" secondItem="9w4-Ar-4aa" secondAttribute="top" id="u58-Mc-Syb"/>
                                                     <constraint firstAttribute="bottom" secondItem="vcn-8h-GvY" secondAttribute="bottom" constant="-10" id="vh9-HI-eql"/>
                                                     <constraint firstAttribute="trailing" secondItem="vcn-8h-GvY" secondAttribute="trailing" id="x7F-r3-DqE"/>
                                                     <constraint firstItem="W7Y-ZT-VHv" firstAttribute="leading" secondItem="9w4-Ar-4aa" secondAttribute="leading" id="ycX-te-Vzc"/>
@@ -324,7 +325,7 @@
                                                 <rect key="frame" x="354" y="79" width="331" height="150"/>
                                                 <subviews>
                                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59F-JR-eOc">
-                                                        <rect key="frame" x="0.0" y="19" width="325" height="131"/>
+                                                        <rect key="frame" x="0.0" y="19" width="331" height="131"/>
                                                     </pickerView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a Class" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKi-hb-IUB">
                                                         <rect key="frame" x="111" y="4" width="108" height="21"/>
@@ -338,7 +339,7 @@
                                                     <constraint firstAttribute="bottom" secondItem="59F-JR-eOc" secondAttribute="bottom" id="4fg-lP-fgR"/>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="MwD-yD-9HK"/>
                                                     <constraint firstItem="bKi-hb-IUB" firstAttribute="centerX" secondItem="jN8-bl-xfA" secondAttribute="centerX" id="Nve-cT-8rt"/>
-                                                    <constraint firstAttribute="trailing" secondItem="59F-JR-eOc" secondAttribute="trailing" constant="6" id="Tll-6t-dsq"/>
+                                                    <constraint firstAttribute="trailing" secondItem="59F-JR-eOc" secondAttribute="trailing" id="Tll-6t-dsq"/>
                                                     <constraint firstItem="59F-JR-eOc" firstAttribute="leading" secondItem="jN8-bl-xfA" secondAttribute="leading" id="W5e-Bf-Hmb"/>
                                                     <constraint firstItem="59F-JR-eOc" firstAttribute="top" secondItem="jN8-bl-xfA" secondAttribute="top" constant="19" id="X9m-NZ-n22"/>
                                                     <constraint firstItem="bKi-hb-IUB" firstAttribute="top" secondItem="jN8-bl-xfA" secondAttribute="top" constant="4" id="hIm-38-Ebk"/>
@@ -359,12 +360,24 @@
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="0.67843137249999996" blue="0.0" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="9Mq-aN-f6t" secondAttribute="trailing" id="8Y2-K2-QQc"/>
                                                     <constraint firstItem="9Mq-aN-f6t" firstAttribute="leading" secondItem="6xH-fC-XNl" secondAttribute="leading" id="G2u-Ee-eCJ"/>
                                                     <constraint firstItem="9Mq-aN-f6t" firstAttribute="top" secondItem="6xH-fC-XNl" secondAttribute="top" id="LK5-s0-pg4"/>
+                                                    <constraint firstAttribute="bottom" secondItem="9Mq-aN-f6t" secondAttribute="bottom" id="NhF-ew-TtR"/>
+                                                    <constraint firstItem="9Mq-aN-f6t" firstAttribute="top" secondItem="6xH-fC-XNl" secondAttribute="top" id="RMR-Pk-UtA"/>
                                                     <constraint firstAttribute="trailing" secondItem="9Mq-aN-f6t" secondAttribute="trailing" id="ZLk-AX-2Dw"/>
                                                     <constraint firstAttribute="height" constant="150" id="aIN-I8-Z51"/>
                                                     <constraint firstAttribute="bottom" secondItem="9Mq-aN-f6t" secondAttribute="bottom" id="cig-Sn-LIK"/>
+                                                    <constraint firstItem="9Mq-aN-f6t" firstAttribute="leading" secondItem="6xH-fC-XNl" secondAttribute="leading" id="sbv-d3-1QH"/>
                                                 </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="G2u-Ee-eCJ"/>
+                                                        <exclude reference="LK5-s0-pg4"/>
+                                                        <exclude reference="ZLk-AX-2Dw"/>
+                                                        <exclude reference="cig-Sn-LIK"/>
+                                                    </mask>
+                                                </variation>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repeats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQp-12-HXx">
                                                 <rect key="frame" x="367" y="245" width="63" height="21"/>
@@ -372,12 +385,6 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="kE9-dS-4QC">
-                                                <rect key="frame" x="354" y="585" width="331" height="123"/>
-                                                <date key="date" timeIntervalSinceReferenceDate="495069082.91460598">
-                                                    <!--2016-09-08 23:11:22 +0000-->
-                                                </date>
-                                            </datePicker>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9n-gh-gzk" userLabel="vDueDate">
                                                 <rect key="frame" x="15" y="237" width="330" height="75"/>
                                                 <subviews>
@@ -424,6 +431,12 @@
                                                     <constraint firstAttribute="bottom" secondItem="oqu-kh-u3G" secondAttribute="bottom" id="phH-2w-9Pn"/>
                                                 </constraints>
                                             </view>
+                                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="kE9-dS-4QC">
+                                                <rect key="frame" x="354" y="585" width="331" height="123"/>
+                                                <date key="date" timeIntervalSinceReferenceDate="495069082.91460598">
+                                                    <!--2016-09-08 23:11:22 +0000-->
+                                                </date>
+                                            </datePicker>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -603,7 +616,10 @@
                         <outlet property="lbAssignmentType" destination="f4h-vs-6vL" id="Rfk-cU-bKl"/>
                         <outlet property="lbDueDate_Day" destination="2hS-CJ-8D9" id="E49-Dh-0Aw"/>
                         <outlet property="lbNotes" destination="Ylr-A3-XsK" id="nh8-GT-TaQ"/>
+                        <outlet property="pClass" destination="59F-JR-eOc" id="PuA-r4-hwi"/>
                         <outlet property="pReminder" destination="vcn-8h-GvY" id="uB0-mH-gQQ"/>
+                        <outlet property="pRepeat" destination="9Mq-aN-f6t" id="bbd-ok-6tr"/>
+                        <outlet property="pRepeats" destination="9Mq-aN-f6t" id="gH8-9q-cAQ"/>
                         <outlet property="pType" destination="Ftq-6t-0at" id="Oue-G8-E4i"/>
                         <outlet property="sReminder" destination="8aw-ME-GRN" id="Ccu-ah-RwH"/>
                         <outlet property="tvNotes" destination="Y1O-IK-eap" id="lu2-oP-IQO"/>
@@ -632,6 +648,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Tll-UG-LXB"/>
+        <segue reference="6S0-TO-JiA"/>
     </inferredMetricsTieBreakers>
 </document>

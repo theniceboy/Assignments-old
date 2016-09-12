@@ -23,6 +23,8 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
     @IBOutlet weak var blurReminder: UIVisualEffectView!
     @IBOutlet weak var sReminder: UISwitch!
     @IBOutlet weak var vReminderBlocker: UIView!
+    @IBOutlet weak var pClass: UIPickerView!
+    @IBOutlet weak var pRepeat: UIPickerView!
     
     // MARK: - Variables & Constants
     
@@ -31,14 +33,15 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
     let repeatType: [String] = ["Everyday", "Every"]
     
     var superDUEDATE: NSDate = NSDate()
+    var dueDate: NSDate = NSDate()
     
     // MARK: - Override functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        superDUEDATE = NSCalendar.currentCalendar().dateByAddingUnit(.Day, value: 1, toDate: NSDate(), options: [])! // Tomorrow
+        dueDate = NSCalendar.currentCalendar().dateByAddingUnit(.Day, value: 1, toDate: NSDate(), options: [])! // Tomorrow
         let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components([.Day , .Month , .Year], fromDate: superDUEDATE)
+        let components = calendar.components([.Day , .Month , .Year], fromDate: dueDate)
         let date: Date = Date(year : components.year, month : components.month, day : components.day)
         lbDueDate_Day.text = "Due " + dateToString(date)
         cvScrollView.contentSize = CGSize(width: vMain.bounds.width, height: 800)
@@ -48,6 +51,10 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
         pType.dataSource = self
         pReminder.delegate = self
         pReminder.dataSource = self
+        //pClass.delegate = self
+        //pClass.dataSource = self
+        //pReminder.delegate = self
+        //pReminder.dataSource = self
         tvNotes.delegate = self
     }
     
@@ -150,11 +157,13 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
         selector.optionStyles.showMonth(false)
         selector.optionStyles.showYear(false)
         selector.optionStyles.showTime(false)
+        selector.optionCurrentDate = dueDate
         //selector.optionStyles.
         presentViewController(selector, animated: true, completion: nil)
     }
     
     func WWCalendarTimeSelectorDone(selector: WWCalendarTimeSelector, date: NSDate) {
+        dueDate = date
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([.Day , .Month , .Year], fromDate: date)
         let dt: Date = Date(year : components.year, month : components.month, day : components.day)
@@ -165,7 +174,7 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
             lbDueDate_Day.textColor = cblue
         }
     }
-
+/*
     @IBAction func dpDueDate_ValueChanged(sender: AnyObject) {
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([.Day , .Month , .Year], fromDate: superDUEDATE)
@@ -178,7 +187,7 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
         }
         //    print(dateToString(date))
     }
-    
+    */
     @IBAction func sReminder_ValueChanged(sender: AnyObject) {
         let alpha: CGFloat = (sReminder.on ? 0 : 0.8)
         vReminderBlocker.hidden = sReminder.on
