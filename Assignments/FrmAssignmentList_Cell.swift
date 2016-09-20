@@ -18,6 +18,8 @@ class FrmAssignmentList_Cell: UITableViewCell {
     @IBOutlet weak var vMain: UIView!
     @IBOutlet weak var vTk: UIView!
     @IBOutlet weak var lbDesc: UILabel!
+    @IBOutlet weak var lbClass: UILabel!
+    @IBOutlet weak var lbAssignmentType: UILabel!
     
     var btnChecked: TKAnimatedCheckButton!
     
@@ -32,6 +34,12 @@ class FrmAssignmentList_Cell: UITableViewCell {
             vMain.addSubview(btnChecked)
             btnCheckNotAddYet = false
         }
+        if ((assignment?.completed)! == true) {
+            btnChecked.checked = true
+        }
+        lbDesc.text = assignment?.desc
+        lbClass.text = assignment?.fromClass
+        lbAssignmentType.text = assignmentType[(assignment?.assignmentType)!]
     }
     
     @IBAction func btnCheckTapped(sender: AnyObject) {
@@ -45,6 +53,7 @@ class FrmAssignmentList_Cell: UITableViewCell {
             })
         }
         btnChecked.checked = !btnChecked.checked
+        assignment?.completed = !(assignment?.completed)!
     }
     
     override func awakeFromNib() {

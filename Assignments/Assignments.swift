@@ -9,6 +9,47 @@
 import Foundation
 import UIKit
 
-var date1: Date = Date(string: "08/31/2016", format: "mm/dd/yyyy")
+let assignmentType: [String] = ["Homework", "Quiz / Test", "Project", "Presentation", "Study", "Others"]
 
-var date2: Date = Date(string: "08/31/2016", format: "mm/dd/yyyy")
+class Assignment : NSObject, NSCoding {
+    var desc: String = "", fromClass: String = "", note: String = "", dueDate: Date = Date(), repeatType: Int = 0, assignmentType: Int = 0, completed: Bool = false
+    
+    func setData (_desc: String, _fromClass: String, _note: String, _duedate: Date, _repeatType: Int, _assignmentType: Int) {
+        desc = _desc
+        fromClass = _fromClass
+        note = _note
+        dueDate = _duedate
+        repeatType = _repeatType
+        assignmentType = _assignmentType
+    }
+    
+    override init () {
+        
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        if let _desc = aDecoder.decodeObjectForKey("desc") as? String { self.desc = _desc }
+        if let _fromClass = aDecoder.decodeObjectForKey("fromClass") as? String { self.fromClass = _fromClass }
+        if let _note = aDecoder.decodeObjectForKey("note") as? String { self.note = _note }
+        if let _dueDate = aDecoder.decodeObjectForKey("dueDate") as? Date { self.dueDate = _dueDate }
+        if let _repeatType = aDecoder.decodeIntegerForKey("repeatType") as? Int { self.repeatType = _repeatType }
+        if let _assignmentType = aDecoder.decodeIntegerForKey("assignmentType") as? Int { self.assignmentType = _assignmentType }
+        if let _completed = aDecoder.decodeBoolForKey("completed") as? Bool { self.completed = _completed }
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(desc, forKey: "desc")
+        aCoder.encodeObject(fromClass, forKey: "fromClass")
+        aCoder.encodeObject(note, forKey: "note")
+        aCoder.encodeObject(dueDate, forKey: "duedate")
+        aCoder.encodeInteger(repeatType, forKey: "repeatType")
+        aCoder.encodeInteger(repeatType, forKey: "assignmentType")
+        aCoder.encodeBool(completed, forKey: "completed")
+    }
+}
+
+func saveSystemAssignments () {
+    NSUserDefaults.standardUserDefaults().setObject(NSKeyedArchiver.archivedDataWithRootObject(assignments), forKey: "assignments")
+    NSUserDefaults.standardUserDefaults().synchronize()
+}
+

@@ -10,42 +10,91 @@ import UIKit
 
 class FrmAssignmentList: UITableViewController {
 
+    // MARK: - Variables
+    
+    var tableAssignments: [[Assignment]] = [], tableDueDates: [Date] = [], tmpAssignments: [Assignment] = []
+    
+    // MARK: - Override functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        curFrmAssignmentList = self
+        
+        let nsAssignments = NSUserDefaults.standardUserDefaults().objectForKey("assignments")
+        if (nsAssignments != nil) {
+            assignments = NSKeyedUnarchiver.unarchiveObjectWithData(nsAssignments as! NSData) as! [Assignment]
+        }
+        
+        convertTable()
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
+    
+    func convertTable () {
+        tableAssignments = []
+        tableDueDates = []
+        var tmpTableRow: [Assignment] = []
+        if (assignments.count == 0) {
+            return
+        }
+        tmpAssignments = assignments
+        if (tmpAssignments.count > 1) {
+            var i: Int, j: Int
+            for i in 0 ... tmpAssignments.count - 2 {
+                for j in i + 1 ... tmpAssignments.count - 1 {
+                    if (tmpAssignments[i].dueDate > tmpAssignments[j].dueDate) {
+                        swap(&tmpAssignments[i], &tmpAssignments[j])
+                    }
+                }
+            }
+            for i in 0 ... tmpAssignments.count - 2 {
+                tmpTableRow.append(tmpAssignments[i])
+                if (tmpAssignments[i].dueDate != tmpAssignments[i + 1].dueDate) {
+                    tableAssignments.append(tmpTableRow)
+                    tableDueDates.append(tmpAssignments[i].dueDate)
+                    tmpTableRow = []
+                }
+            }
+            i = tmpAssignments.count - 1
+            if (tmpTableRow.count == 0) {
+                tableDueDates.append(tmpAssignments[i].dueDate)
+            }
+            tmpTableRow.append(tmpAssignments[i])
+            tableAssignments.append(tmpTableRow)
+        } else {
+            tmpTableRow.append(tmpAssignments[0])
+            tableDueDates.append(tmpAssignments[0].dueDate)
+            tableAssignments.append(tmpTableRow)
+        }
+    }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        return tableAssignments.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
+        return tableAssignments[section].count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("AssignmentID", forIndexPath: indexPath) as! FrmAssignmentList_Cell
 
-        cell.assignment = nil
+        cell.assignment = tableAssignments[indexPath.section][indexPath.row]
         
         return cell
     }
     
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return dateToString(tableDueDates[section])
+    }
 
     /*
     // Override to support conditional editing of the table view.

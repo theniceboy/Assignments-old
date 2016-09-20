@@ -9,12 +9,6 @@
 import Foundation
 import UIKit
 
-// General Assignments
-class Classes {
-    var name: String = ""
-    var period: Int = 0
-}
-
 // Colors
 let cred = UIColor (red: 208 / 255, green: 2 / 255, blue: 27 / 255, alpha: 1.0)
 let cgreen = UIColor (red: 126 / 255, green: 211 / 255, blue: 33 / 255, alpha: 1.0)
@@ -26,21 +20,12 @@ let cblack = UIColor (red: 0, green: 0, blue: 0, alpha: 1.0)
 let csystemdarkgray = UIColor (red: 85 / 255, green: 85 / 255, blue: 85 / 255, alpha: 1.0)
 
 
-class Assignment {
-    var desc: String = "", from: String = "", note: String = "", duedate: Date = Date(), repeattype: Int = 0
-    
-    func newAssignment (desc: String, from: String, note: String, duedate: Date, repeattype: Int) {
-        let assignment = Assignment()
-        assignment.desc = desc
-        assignment.from = from
-        assignment.note = note
-        assignment.duedate = duedate
-        assignment.repeattype = repeattype
-        assignments.append(assignment)
-    }
-}
-
 var assignments: [Assignment] = []
+var classes: [Class] = []
+
+
+var curFrmAssignmentList: FrmAssignmentList = FrmAssignmentList()
+
 
 /*
  repeattype

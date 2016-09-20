@@ -16,13 +16,21 @@ class FrmClassList: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let nsClasses = NSUserDefaults.standardUserDefaults().objectForKey("classes")
+        if (nsClasses != nil) {
+            classes = NSKeyedUnarchiver.unarchiveObjectWithData(nsClasses as! NSData) as! [Class]
+        }
+        if (classes.count == 0) {
+            let generalClass: Class = Class()
+            generalClass.name = "General"
+            classes.append(generalClass)
+        }
         
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? FrmAssignmentList
         }
-        //print("\(Actual360().dayCount(date, date2: date2))")
     }
 
     override func viewWillAppear(animated: Bool) {
