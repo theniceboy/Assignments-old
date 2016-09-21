@@ -68,7 +68,7 @@ public class SkyFloatingLabelTextField: UITextField {
     private func updatePlaceholder() {
         if let
             placeholder = self.placeholder,
-            font = self.placeholderFont ?? self.font {
+            let font = self.placeholderFont ?? self.font {
                 self.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName:placeholderColor,
                     NSFontAttributeName: font])
         }
@@ -268,7 +268,7 @@ public class SkyFloatingLabelTextField: UITextField {
     }
     
     private func addEditingChangedObserver() {
-        self.addTarget(self, action: Selector("editingChanged"), forControlEvents: .EditingChanged)
+        self.addTarget(self, action: #selector(SkyFloatingLabelTextField.editingChanged), forControlEvents: .EditingChanged)
     }
     
     /**

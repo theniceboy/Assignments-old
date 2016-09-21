@@ -1749,7 +1749,7 @@ public class WWCalendarTimeSelector: UIViewController, UITableViewDelegate, UITa
                     multipleDatesLastAdded = nil
                     selMultipleDatesTable.beginUpdates()
                     selMultipleDatesTable.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
-                    if let ip = indexPathToReload where ip != indexPath {
+                    if let ip = indexPathToReload  where ip != indexPath {
                         selMultipleDatesTable.reloadRowsAtIndexPaths([ip], withRowAnimation: UITableViewRowAnimation.Fade)
                     }
                     selMultipleDatesTable.endUpdates()
@@ -1957,7 +1957,7 @@ internal class WWCalendarRow: UIView {
                     let y = (boxHeight - dateHeight) / 2
                     
                     if comparisonDates.contains(date) {
-                        CGContextSetFillColorWithColor(ctx, backgroundHighlightColor)
+                        CGContextSetFillColorWithColor(ctx!, backgroundHighlightColor)
                         
                         if multipleSelectionEnabled {
                             var testStringSize = NSAttributedString(string: "00", attributes: [NSFontAttributeName: dateTodayFontHighlight, NSParagraphStyleAttributeName: paragraph]).size()
@@ -1985,28 +1985,28 @@ internal class WWCalendarRow: UIView {
                                 break
                             case .Pill:
                                 if comparisonDates.contains(date - 1.day) {
-                                    CGContextFillRect(ctx, CGRect(x: CGFloat(i - 1) * boxWidth, y: y, width: boxWidth / 2 + 1, height: maxConnectorSize))
+                                    CGContextFillRect(ctx!, CGRect(x: CGFloat(i - 1) * boxWidth, y: y, width: boxWidth / 2 + 1, height: maxConnectorSize))
                                 }
                                 if comparisonDates.contains(date + 1.day) {
-                                    CGContextFillRect(ctx, CGRect(x: CGFloat(i - 1) * boxWidth + boxWidth / 2, y: y, width: boxWidth / 2 + 1, height: maxConnectorSize))
+                                    CGContextFillRect(ctx!, CGRect(x: CGFloat(i - 1) * boxWidth + boxWidth / 2, y: y, width: boxWidth / 2 + 1, height: maxConnectorSize))
                                 }
                             case .LinkedBalls:
                                 if comparisonDates.contains(date - 1.day) {
-                                    CGContextFillRect(ctx, CGRect(x: CGFloat(i - 1) * boxWidth, y: (boxHeight - multipleSelectionBar) / 2, width: boxWidth / 2 + 1, height: multipleSelectionBar))
+                                    CGContextFillRect(ctx!, CGRect(x: CGFloat(i - 1) * boxWidth, y: (boxHeight - multipleSelectionBar) / 2, width: boxWidth / 2 + 1, height: multipleSelectionBar))
                                 }
                                 if comparisonDates.contains(date + 1.day) {
-                                    CGContextFillRect(ctx, CGRect(x: CGFloat(i - 1) * boxWidth + boxWidth / 2, y: (boxHeight - multipleSelectionBar) / 2, width: boxWidth / 2 + 1, height: multipleSelectionBar))
+                                    CGContextFillRect(ctx!, CGRect(x: CGFloat(i - 1) * boxWidth + boxWidth / 2, y: (boxHeight - multipleSelectionBar) / 2, width: boxWidth / 2 + 1, height: multipleSelectionBar))
                                 }
                             }
                             
                             // ball
-                            CGContextFillEllipseInRect(ctx, CGRect(x: x, y: y, width: size, height: size))
+                            CGContextFillEllipseInRect(ctx!, CGRect(x: x, y: y, width: size, height: size))
                         }
                         else {
                             let size = min(boxHeight, boxWidth)
                             let x = CGFloat(i - 1) * boxWidth + (boxWidth - size) / 2
                             let y = (boxHeight - size) / 2
-                            CGContextFillEllipseInRect(ctx, CGRect(x: x, y: y, width: size, height: size))
+                            CGContextFillEllipseInRect(ctx!, CGRect(x: x, y: y, width: size, height: size))
                         }
                         
                         str = NSMutableAttributedString(string: "\(date.day)", attributes: [NSFontAttributeName: font, NSForegroundColorAttributeName: fontHighlightColor, NSParagraphStyleAttributeName: paragraph])
@@ -2168,12 +2168,12 @@ internal class WWClock: UIView {
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = NSTextAlignment.Center
         
-        CGContextSetFillColorWithColor(ctx, backgroundColorClockFace.CGColor)
-        CGContextFillEllipseInRect(ctx, CGRect(x: faceX, y: faceY, width: faceSize, height: faceSize))
+        CGContextSetFillColorWithColor(ctx!, backgroundColorClockFace.CGColor)
+        CGContextFillEllipseInRect(ctx!, CGRect(x: faceX, y: faceY, width: faceSize, height: faceSize))
         
-        CGContextSetFillColorWithColor(ctx, backgroundColorAMPMHighlight.CGColor)
+        CGContextSetFillColorWithColor(ctx!, backgroundColorAMPMHighlight.CGColor)
         if time.hour < 12 {
-            CGContextFillEllipseInRect(ctx, CGRect(x: amX, y: ampmY, width: ampmSize, height: ampmSize))
+            CGContextFillEllipseInRect(ctx!, CGRect(x: amX, y: ampmY, width: ampmSize, height: ampmSize))
             var str = NSAttributedString(string: "AM", attributes: [NSFontAttributeName: fontAMPMHighlight, NSForegroundColorAttributeName: fontColorAMPMHighlight, NSParagraphStyleAttributeName: paragraph])
             var ampmHeight = fontAMPMHighlight.lineHeight
             str.drawInRect(CGRect(x: amX, y: ampmY + (ampmSize - ampmHeight) / 2, width: ampmSize, height: ampmHeight))
@@ -2182,7 +2182,7 @@ internal class WWClock: UIView {
             str.drawInRect(CGRect(x: pmX, y: ampmY + (ampmSize - ampmHeight) / 2, width: ampmSize, height: ampmHeight))
         }
         else {
-            CGContextFillEllipseInRect(ctx, CGRect(x: pmX, y: ampmY, width: ampmSize, height: ampmSize))
+            CGContextFillEllipseInRect(ctx!, CGRect(x: pmX, y: ampmY, width: ampmSize, height: ampmSize))
             var str = NSAttributedString(string: "AM", attributes: [NSFontAttributeName: fontAMPM, NSForegroundColorAttributeName: fontColorAMPM, NSParagraphStyleAttributeName: paragraph])
             var ampmHeight = fontAMPM.lineHeight
             str.drawInRect(CGRect(x: amX, y: ampmY + (ampmSize - ampmHeight) / 2, width: ampmSize, height: ampmHeight))
@@ -2203,8 +2203,8 @@ internal class WWClock: UIView {
             let radius = faceSize / 2 - maxSize
             let radiusHighlight = faceSize / 2 - maxSizeHighlight
             
-            CGContextSaveGState(ctx)
-            CGContextTranslateCTM(ctx, faceX + faceSize / 2, faceY + faceSize / 2) // everything starts at clock face center
+            CGContextSaveGState(ctx!)
+            CGContextTranslateCTM(ctx!, faceX + faceSize / 2, faceY + faceSize / 2) // everything starts at clock face center
             
             let degreeIncrement = 360 / CGFloat(hours.count)
             let currentHour = get12Hour(time)
@@ -2214,45 +2214,45 @@ internal class WWClock: UIView {
                 
                 if h.element == currentHour {
                     // needle
-                    CGContextSaveGState(ctx)
-                    CGContextSetStrokeColorWithColor(ctx, backgroundColorHourHighlightNeedle.CGColor)
-                    CGContextSetLineWidth(ctx, 1)
-                    CGContextMoveToPoint(ctx, 0, 0)
-                    CGContextScaleCTM(ctx, -1, 1)
-                    CGContextAddLineToPoint(ctx, (radiusHighlight - highlightCircleSize / 2) * cos(angle), -((radiusHighlight - highlightCircleSize / 2) * sin(angle)))
-                    CGContextScaleCTM(ctx, -1, 1)
-                    CGContextStrokePath(ctx)
-                    CGContextRestoreGState(ctx)
+                    CGContextSaveGState(ctx!)
+                    CGContextSetStrokeColorWithColor(ctx!, backgroundColorHourHighlightNeedle.CGColor)
+                    CGContextSetLineWidth(ctx!, 1)
+                    CGContextMoveToPoint(ctx!, 0, 0)
+                    CGContextScaleCTM(ctx!, -1, 1)
+                    CGContextAddLineToPoint(ctx!, (radiusHighlight - highlightCircleSize / 2) * cos(angle), -((radiusHighlight - highlightCircleSize / 2) * sin(angle)))
+                    CGContextScaleCTM(ctx!, -1, 1)
+                    CGContextStrokePath(ctx!)
+                    CGContextRestoreGState(ctx!)
                     
                     // highlight
-                    CGContextSaveGState(ctx)
-                    CGContextSetFillColorWithColor(ctx, backgroundColorHourHighlight.CGColor)
-                    CGContextScaleCTM(ctx, -1, 1)
-                    CGContextTranslateCTM(ctx, radiusHighlight * cos(angle), -(radiusHighlight * sin(angle)))
-                    CGContextScaleCTM(ctx, -1, 1)
-                    CGContextFillEllipseInRect(ctx, CGRect(x: -highlightCircleSize / 2, y: -highlightCircleSize / 2, width: highlightCircleSize, height: highlightCircleSize))
-                    CGContextRestoreGState(ctx)
+                    CGContextSaveGState(ctx!)
+                    CGContextSetFillColorWithColor(ctx!, backgroundColorHourHighlight.CGColor)
+                    CGContextScaleCTM(ctx!, -1, 1)
+                    CGContextTranslateCTM(ctx!, radiusHighlight * cos(angle), -(radiusHighlight * sin(angle)))
+                    CGContextScaleCTM(ctx!, -1, 1)
+                    CGContextFillEllipseInRect(ctx!, CGRect(x: -highlightCircleSize / 2, y: -highlightCircleSize / 2, width: highlightCircleSize, height: highlightCircleSize))
+                    CGContextRestoreGState(ctx!)
                     
                     // numbers
                     let hour = NSAttributedString(string: "\(h.element)", attributes: textAttrHighlight)
-                    CGContextSaveGState(ctx)
-                    CGContextScaleCTM(ctx, -1, 1)
-                    CGContextTranslateCTM(ctx, radiusHighlight * cos(angle), -(radiusHighlight * sin(angle)))
-                    CGContextScaleCTM(ctx, -1, 1)
-                    CGContextTranslateCTM(ctx, -hour.size().width / 2, -hour.size().height / 2)
+                    CGContextSaveGState(ctx!)
+                    CGContextScaleCTM(ctx!, -1, 1)
+                    CGContextTranslateCTM(ctx!, radiusHighlight * cos(angle), -(radiusHighlight * sin(angle)))
+                    CGContextScaleCTM(ctx!, -1, 1)
+                    CGContextTranslateCTM(ctx!, -hour.size().width / 2, -hour.size().height / 2)
                     hour.drawAtPoint(CGPoint.zero)
-                    CGContextRestoreGState(ctx)
+                    CGContextRestoreGState(ctx!)
                 }
                 else {
                     // numbers
                     let hour = NSAttributedString(string: "\(h.element)", attributes: textAttr)
-                    CGContextSaveGState(ctx)
-                    CGContextScaleCTM(ctx, -1, 1)
-                    CGContextTranslateCTM(ctx, radius * cos(angle), -(radius * sin(angle)))
-                    CGContextScaleCTM(ctx, -1, 1)
-                    CGContextTranslateCTM(ctx, -hour.size().width / 2, -hour.size().height / 2)
+                    CGContextSaveGState(ctx!)
+                    CGContextScaleCTM(ctx!, -1, 1)
+                    CGContextTranslateCTM(ctx!, radius * cos(angle), -(radius * sin(angle)))
+                    CGContextScaleCTM(ctx!, -1, 1)
+                    CGContextTranslateCTM(ctx!, -hour.size().width / 2, -hour.size().height / 2)
                     hour.drawAtPoint(CGPoint.zero)
-                    CGContextRestoreGState(ctx)
+                    CGContextRestoreGState(ctx!)
                 }
             }
         }
@@ -2269,8 +2269,8 @@ internal class WWClock: UIView {
             let radius = faceSize / 2 - maxSize
             let radiusHighlight = faceSize / 2 - maxSizeHighlight
             
-            CGContextSaveGState(ctx)
-            CGContextTranslateCTM(ctx, faceX + faceSize / 2, faceY + faceSize / 2) // everything starts at clock face center
+            CGContextSaveGState(ctx!)
+            CGContextTranslateCTM(ctx!, faceX + faceSize / 2, faceY + faceSize / 2) // everything starts at clock face center
             
             let degreeIncrement = 360 / CGFloat(minutes.count)
             let currentMinute = get60Minute(time)
@@ -2280,57 +2280,57 @@ internal class WWClock: UIView {
                 
                 if m.element == currentMinute {
                     // needle
-                    CGContextSaveGState(ctx)
-                    CGContextSetStrokeColorWithColor(ctx, backgroundColorMinuteHighlightNeedle.CGColor)
-                    CGContextSetLineWidth(ctx, 1)
-                    CGContextMoveToPoint(ctx, 0, 0)
-                    CGContextScaleCTM(ctx, -1, 1)
+                    CGContextSaveGState(ctx!)
+                    CGContextSetStrokeColorWithColor(ctx!, backgroundColorMinuteHighlightNeedle.CGColor)
+                    CGContextSetLineWidth(ctx!, 1)
+                    CGContextMoveToPoint(ctx!, 0, 0)
+                    CGContextScaleCTM(ctx!, -1, 1)
                     if minuteStep.rawValue < 5 && m.element % 5 != 0 {
-                        CGContextAddLineToPoint(ctx, (radiusHighlight - highlightCircleMinSize / 2) * cos(angle), -((radiusHighlight - highlightCircleMinSize / 2) * sin(angle)))
+                        CGContextAddLineToPoint(ctx!, (radiusHighlight - highlightCircleMinSize / 2) * cos(angle), -((radiusHighlight - highlightCircleMinSize / 2) * sin(angle)))
                     }
                     else {
-                        CGContextAddLineToPoint(ctx, (radiusHighlight - highlightCircleMaxSize / 2) * cos(angle), -((radiusHighlight - highlightCircleMaxSize / 2) * sin(angle)))
+                        CGContextAddLineToPoint(ctx!, (radiusHighlight - highlightCircleMaxSize / 2) * cos(angle), -((radiusHighlight - highlightCircleMaxSize / 2) * sin(angle)))
                     }
-                    CGContextScaleCTM(ctx, -1, 1)
-                    CGContextStrokePath(ctx)
-                    CGContextRestoreGState(ctx)
+                    CGContextScaleCTM(ctx!, -1, 1)
+                    CGContextStrokePath(ctx!)
+                    CGContextRestoreGState(ctx!)
                     
                     // highlight
-                    CGContextSaveGState(ctx)
-                    CGContextSetFillColorWithColor(ctx, backgroundColorMinuteHighlight.CGColor)
-                    CGContextScaleCTM(ctx, -1, 1)
-                    CGContextTranslateCTM(ctx, radiusHighlight * cos(angle), -(radiusHighlight * sin(angle)))
-                    CGContextScaleCTM(ctx, -1, 1)
+                    CGContextSaveGState(ctx!)
+                    CGContextSetFillColorWithColor(ctx!, backgroundColorMinuteHighlight.CGColor)
+                    CGContextScaleCTM(ctx!, -1, 1)
+                    CGContextTranslateCTM(ctx!, radiusHighlight * cos(angle), -(radiusHighlight * sin(angle)))
+                    CGContextScaleCTM(ctx!, -1, 1)
                     if minuteStep.rawValue < 5 && m.element % 5 != 0 {
-                        CGContextFillEllipseInRect(ctx, CGRect(x: -highlightCircleMinSize / 2, y: -highlightCircleMinSize / 2, width: highlightCircleMinSize, height: highlightCircleMinSize))
+                        CGContextFillEllipseInRect(ctx!, CGRect(x: -highlightCircleMinSize / 2, y: -highlightCircleMinSize / 2, width: highlightCircleMinSize, height: highlightCircleMinSize))
                     }
                     else {
-                        CGContextFillEllipseInRect(ctx, CGRect(x: -highlightCircleMaxSize / 2, y: -highlightCircleMaxSize / 2, width: highlightCircleMaxSize, height: highlightCircleMaxSize))
+                        CGContextFillEllipseInRect(ctx!, CGRect(x: -highlightCircleMaxSize / 2, y: -highlightCircleMaxSize / 2, width: highlightCircleMaxSize, height: highlightCircleMaxSize))
                     }
-                    CGContextRestoreGState(ctx)
+                    CGContextRestoreGState(ctx!)
                     
                     // numbers
                     if minuteStep.rawValue < 5 {
                         if m.element % 5 == 0 {
                             let min = NSAttributedString(string: "\(m.element)", attributes: textAttrHighlight)
-                            CGContextSaveGState(ctx)
-                            CGContextScaleCTM(ctx, -1, 1)
-                            CGContextTranslateCTM(ctx, radiusHighlight * cos(angle), -(radiusHighlight * sin(angle)))
-                            CGContextScaleCTM(ctx, -1, 1)
-                            CGContextTranslateCTM(ctx, -min.size().width / 2, -min.size().height / 2)
+                            CGContextSaveGState(ctx!)
+                            CGContextScaleCTM(ctx!, -1, 1)
+                            CGContextTranslateCTM(ctx!, radiusHighlight * cos(angle), -(radiusHighlight * sin(angle)))
+                            CGContextScaleCTM(ctx!, -1, 1)
+                            CGContextTranslateCTM(ctx!, -min.size().width / 2, -min.size().height / 2)
                             min.drawAtPoint(CGPoint.zero)
-                            CGContextRestoreGState(ctx)
+                            CGContextRestoreGState(ctx!)
                         }
                     }
                     else {
                         let min = NSAttributedString(string: "\(m.element)", attributes: textAttrHighlight)
-                        CGContextSaveGState(ctx)
-                        CGContextScaleCTM(ctx, -1, 1)
-                        CGContextTranslateCTM(ctx, radiusHighlight * cos(angle), -(radiusHighlight * sin(angle)))
-                        CGContextScaleCTM(ctx, -1, 1)
-                        CGContextTranslateCTM(ctx, -min.size().width / 2, -min.size().height / 2)
+                        CGContextSaveGState(ctx!)
+                        CGContextScaleCTM(ctx!, -1, 1)
+                        CGContextTranslateCTM(ctx!, radiusHighlight * cos(angle), -(radiusHighlight * sin(angle)))
+                        CGContextScaleCTM(ctx!, -1, 1)
+                        CGContextTranslateCTM(ctx!, -min.size().width / 2, -min.size().height / 2)
                         min.drawAtPoint(CGPoint.zero)
-                        CGContextRestoreGState(ctx)
+                        CGContextRestoreGState(ctx!)
                     }
                 }
                 else {
@@ -2338,33 +2338,33 @@ internal class WWClock: UIView {
                     if minuteStep.rawValue < 5 {
                         if m.element % 5 == 0 {
                             let min = NSAttributedString(string: "\(m.element)", attributes: textAttr)
-                            CGContextSaveGState(ctx)
-                            CGContextScaleCTM(ctx, -1, 1)
-                            CGContextTranslateCTM(ctx, radius * cos(angle), -(radius * sin(angle)))
-                            CGContextScaleCTM(ctx, -1, 1)
-                            CGContextTranslateCTM(ctx, -min.size().width / 2, -min.size().height / 2)
+                            CGContextSaveGState(ctx!)
+                            CGContextScaleCTM(ctx!, -1, 1)
+                            CGContextTranslateCTM(ctx!, radius * cos(angle), -(radius * sin(angle)))
+                            CGContextScaleCTM(ctx!, -1, 1)
+                            CGContextTranslateCTM(ctx!, -min.size().width / 2, -min.size().height / 2)
                             min.drawAtPoint(CGPoint.zero)
-                            CGContextRestoreGState(ctx)
+                            CGContextRestoreGState(ctx!)
                         }
                     }
                     else {
                         let min = NSAttributedString(string: "\(m.element)", attributes: textAttr)
-                        CGContextSaveGState(ctx)
-                        CGContextScaleCTM(ctx, -1, 1)
-                        CGContextTranslateCTM(ctx, radius * cos(angle), -(radius * sin(angle)))
-                        CGContextScaleCTM(ctx, -1, 1)
-                        CGContextTranslateCTM(ctx, -min.size().width / 2, -min.size().height / 2)
+                        CGContextSaveGState(ctx!)
+                        CGContextScaleCTM(ctx!, -1, 1)
+                        CGContextTranslateCTM(ctx!, radius * cos(angle), -(radius * sin(angle)))
+                        CGContextScaleCTM(ctx!, -1, 1)
+                        CGContextTranslateCTM(ctx!, -min.size().width / 2, -min.size().height / 2)
                         min.drawAtPoint(CGPoint.zero)
-                        CGContextRestoreGState(ctx)
+                        CGContextRestoreGState(ctx!)
                     }
                 }
             }
         }
         
         // center piece
-        CGContextSetFillColorWithColor(ctx, backgroundColorClockFaceCenter.CGColor)
-        CGContextFillEllipseInRect(ctx, CGRect(x: -centerPieceSize / 2, y: -centerPieceSize / 2, width: centerPieceSize, height: centerPieceSize))
-        CGContextRestoreGState(ctx)
+        CGContextSetFillColorWithColor(ctx!, backgroundColorClockFaceCenter.CGColor)
+        CGContextFillEllipseInRect(ctx!, CGRect(x: -centerPieceSize / 2, y: -centerPieceSize / 2, width: centerPieceSize, height: centerPieceSize))
+        CGContextRestoreGState(ctx!)
     }
     
     private func get60Minute(date: NSDate) -> Int {

@@ -105,7 +105,7 @@ public class TKAnimatedCheckButton : UIButton {
             layer.lineCap = kCALineCapRound
             layer.masksToBounds = true
 
-            let strokingPath:CGPath = CGPathCreateCopyByStrokingPath(layer.path, nil, 4, CGLineCap.Round, CGLineJoin.Miter, 4)!
+            let strokingPath:CGPath = CGPathCreateCopyByStrokingPath(layer.path!, nil, 4, CGLineCap.Round, CGLineJoin.Miter, 4)!
             layer.bounds = CGPathGetPathBoundingBox(strokingPath)
             layer.actions = [
                 "strokeStart": NSNull(),

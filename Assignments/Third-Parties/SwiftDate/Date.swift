@@ -139,7 +139,7 @@ public class Date {
     public func year() -> Int {
         var y = (serialNumber / 365) + 1900
         if (serialNumber <= Date.yearOffset(y)) {
-            --y
+            y -= 1
         }
         return y
     }
@@ -166,10 +166,10 @@ public class Date {
         var m = d / 30 + 1
         let leap = Date.isLeap(year())
         while (d <= Date.monthOffset(m, leapYear: leap)) {
-            --m
+            m -= 1
         }
         while (d > Date.monthOffset(m + 1, leapYear: leap)) {
-            ++m
+            m += 1
         }
         return m;
     }
@@ -675,7 +675,7 @@ public func - (date1 : Date, date2 : Date) -> Int {
 }
 
 
-public func += (inout date : Date, days : Int) {
+public func += ( inout date : Date, days : Int) {
     date = date + days
 }
 

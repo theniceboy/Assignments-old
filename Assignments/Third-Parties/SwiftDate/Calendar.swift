@@ -116,24 +116,24 @@ public class Calendar {
                 var d = fromDate
                 while d < toDate {
                     if isBizDay(d) {
-                        ++wd
+                        wd += 1
                     }
                     d += 1
                 }
                 if isBizDay(toDate) {
-                    ++wd
+                    wd += 1
                 }
             } else if (fromDate > toDate) {
                 var d = toDate
                 while d < fromDate {
                     if isBizDay(d) {
-                        ++wd
+                        wd += 1
                     }
                     d += 1
                 }
                 
                 if (isBizDay(toDate)) {
-                    ++wd
+                    wd += 1
                 }
             }
             
