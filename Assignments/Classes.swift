@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 // General Assignments
-class Class {
+class Class: NSObject {
     var name: String = ""
     var period: Int = 0
     
@@ -19,7 +19,7 @@ class Class {
         period = _period
     }
     
-    init () {
+    override init () {
         
     }
     

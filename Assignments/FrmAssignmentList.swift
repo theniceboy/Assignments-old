@@ -12,7 +12,7 @@ class FrmAssignmentList: UITableViewController {
 
     // MARK: - Variables
     
-    var tableAssignments: [[Assignment]] = [], tableDueDates: [Date] = [], tmpAssignments: [Assignment] = []
+    var tableAssignments: [[Assignment]] = [], tableDueDates: [NSDate] = [], tmpAssignments: [Assignment] = []
     
     // MARK: - Override functions
     
@@ -38,6 +38,7 @@ class FrmAssignmentList: UITableViewController {
     // MARK: - Table view data source
     
     func convertTable () {
+        //print("________All Assignments:", assignments[0].dueDate)
         tableAssignments = []
         tableDueDates = []
         var tmpTableRow: [Assignment] = []
@@ -93,7 +94,7 @@ class FrmAssignmentList: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return dateToString(tableDueDates[section])
+        return dateToString(Date(year: tableDueDates[section].year, month: tableDueDates[section].month, day: tableDueDates[section].day))
     }
 
     /*

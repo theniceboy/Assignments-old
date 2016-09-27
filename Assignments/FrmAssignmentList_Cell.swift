@@ -27,7 +27,7 @@ class FrmAssignmentList_Cell: UITableViewCell {
     
     func configureView() {
         if (btnCheckNotAddYet) {
-            btnChecked = TKAnimatedCheckButton (frame: vTk.frame)
+            btnChecked = TKAnimatedCheckButton (frame: CGRect(x: 20, y: 20, width: 35, height: 35))
             btnChecked.addTarget(self, action: #selector(FrmAssignmentList_Cell.btnCheckTapped(_:)), forControlEvents: UIControlEvents.TouchUpInside)
             btnChecked.color = csystemdarkgray.CGColor
             btnChecked.skeletonColor = clightgray.CGColor

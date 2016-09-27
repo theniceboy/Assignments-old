@@ -28,7 +28,7 @@ public enum RollDay : Int {
     ThirtyOne
 }
 
-public class Date {
+public class Date: NSObject {
     
     /** serialNumber corresponds to the numerical representations in Excel
      *  serialNumber of 1 corresponds to 1900-01-01,
@@ -49,7 +49,9 @@ public class Date {
     /** 
      * Default constructor constructs the "null date", with serial number of 0
      */
-    public init() {
+    
+    override init() {
+        //
     }
     
     
@@ -90,6 +92,7 @@ public class Date {
      *  @param format  a formatting mask such as "yyyy-mm-dd"; only '-' and '/' are allowed as delimiters
      */
     public init(string : String, format : String = "yyyy-mm-dd") {
+        super.init()
         serialNumber = parse(string, format: format).serialNumber
     }
     

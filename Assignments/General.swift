@@ -22,8 +22,9 @@ func dateCounter_FromToday (dt: Date) -> Int {
 }
 
 func dateN (dt: Date) -> Int {
-    let formatter  = NSDateFormatter()
-    let month = "\((dt.month() > 9 ? "" : "0"))\(dt.month())", day = "\((dt.day() > 9 ? "" : "0"))\(dt.day())"
+    let formatter = NSDateFormatter()
+    let month: String = "\((dt.month() > 9 ? "" : "0"))\(dt.month())"
+    let day = "\((dt.day() > 9 ? "" : "0"))\(dt.day())"
     formatter.dateFormat = "yyyy-MM-dd"
     let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
     let myComponents = myCalendar.components(.Weekday, fromDate: formatter.dateFromString("\(dt.year())-\(month)-\(day)")!)
@@ -46,8 +47,7 @@ func dateToString (dt: Date) -> String {
     //if (date.toString(format: cdf) == unlimited_date_str) {
     //    return "unlimited"
     //}
-    let today = Date.today()
-    today
+    //let today = Date.today()
     let uday: Int = dateCounter_FromToday(dt)
     let nday = dateN(dt)
     let advanced_str: String = (abs(uday) > 1 ? (uday > 1 ? "（\(uday) days later）" : "（\(abs(uday)) days ago）") : "")

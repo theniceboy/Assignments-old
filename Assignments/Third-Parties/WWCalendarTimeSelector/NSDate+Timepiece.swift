@@ -47,7 +47,7 @@ extension NSDate {
     }
     
     // MARK: - Get components
-    
+    /*
     var year: Int {
         return components.year
     }
@@ -75,14 +75,15 @@ extension NSDate {
     var second: Int {
         return components.second
     }
-    
+    */
     var timeZone: NSTimeZone {
         return objc_getAssociatedObject(self, &AssociatedKeys.TimeZone) as? NSTimeZone ?? calendar.timeZone
     }
-    
+    /*
     private var components: NSDateComponents {
         return calendar.components([.Year, .Month, .Weekday, .Day, .Hour, .Minute, .Second], fromDate: self)
     }
+ */
     
     private var calendar: NSCalendar {
         return NSCalendar.currentCalendar()
@@ -105,11 +106,11 @@ extension NSDate {
     }
     
     class func yesterday() -> NSDate {
-        return today() - 1.day
+        return nstoday() - 1.day
     }
     
     class func tomorrow() -> NSDate {
-        return today() + 1.day
+        return nstoday() + 1.day
     }
     
     // MARK: - Initialize by setting components

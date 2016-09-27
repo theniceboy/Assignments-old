@@ -256,6 +256,8 @@ public class WWCalendarTimeSelector: UIViewController, UITableViewDelegate, UITa
     /// A convenient identifier object. Not used by `WWCalendarTimeSelector`.
     public var optionIdentifier: AnyObject?
     
+    //var disableFirstLB: Bool = false
+    @IBOutlet weak var lbTapToSwich: UILabel!
     /// Set `optionPickerStyle` with one or more of the following:
     ///
     /// `DateMonth`: This shows the the date and month.
@@ -972,6 +974,9 @@ public class WWCalendarTimeSelector: UIViewController, UITableViewDelegate, UITa
     }
     
     private func showTime(userTap: Bool) {
+        //if (!disableFirstLB) {
+            lbTapToSwich.hidden = false
+        //}
         if userTap {
             if selCurrrent.showTime {
                 selTimeStateHour = !selTimeStateHour
