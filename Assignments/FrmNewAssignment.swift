@@ -20,10 +20,7 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
     @IBOutlet weak var vMain: UIView!
     @IBOutlet weak var pType: UIPickerView!
     @IBOutlet weak var lbAssignmentType: UILabel!
-    @IBOutlet weak var pReminder: UIPickerView!
-    @IBOutlet weak var blurReminder: UIVisualEffectView!
     @IBOutlet weak var sReminder: UISwitch!
-    @IBOutlet weak var vReminderBlocker: UIView!
     @IBOutlet weak var pClass: UIPickerView!
     @IBOutlet weak var sRepeat: UISwitch!
     @IBOutlet weak var pRepeat: UIPickerView!
@@ -35,36 +32,50 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
     @IBOutlet weak var vReminderCustom: UIView!
     @IBOutlet weak var btnReminderCustomDate: ZFRippleButton!
     @IBOutlet weak var btnReminderCustomTime: ZFRippleButton!
+    @IBOutlet weak var pPriority: UIPickerView!
+    @IBOutlet weak var btnAdd: ZFRippleButton!
     
     // MARK: - Variables & Constants
     
+    // General
+    var _EDIT: Bool = false, _editAssignment: Assignment = Assignment()
+    var curKeyboardHeight: CGFloat = 0
+    var scrollHeight: CGFloat = 800
+    // dueDate
+    var dueDate: NSDate = NSDate(), dueTime: NSDate = NSDate()
+    var withSpecificTime: Bool = false
+    // Reminder
     var reminderType: [String] = ["Night before", "2 nights Before", "Date due", "Custom"]
     let reminderType_withSpecificTime: [String] = ["Night before", "2 nights Before", "An hour before", "Two hours before", "15 minutes before", "Custom"]
-    var withSpecificTime: Bool = false
+    var reminderCustomDate: NSDate = NSDate(), reminderCustomTime: NSDate = NSDate()
+    var reminderPicked: Bool = false
+    // Repeat
     let repeatType: [String] = ["Everyday", "Every week", "Every 2 weeks", "Custom"]
-    var superDUEDATE: NSDate = NSDate()
-    var dueDate: NSDate = NSDate(), dueTime: NSDate = NSDate()
+    //var superDUEDATE: NSDate = NSDate()
     // Constraints
-    var c1: NSLayoutConstraint!
+    var c1: NSLayoutConstraint!, c2: NSLayoutConstraint!
     var cSetAlready: Bool = false
     // WWC
     var currentWWCPicker: String = ""
-    var formChecked: Bool = false
-    var customDateTime: NSDate = NSDate()
     // UIPicker
-    var cuiType: Int = 0, cuiReminder: Int = 0, cuiClass: Int = 0, cuiRepeat: Int = 0
-    
+    var cuiType: Int = 0, cuiClass: Int = 0, cuiRepeat: Int = 0, cuiPriority: Int = 0 // Cur pick
+    //Final Form Check
+    var formChecked: Bool = false
     
     // MARK: - UI
     
     func initViews() {
         if (!cSetAlready) {
+            c2 = NSLayoutConstraint(item: self.view, attribute: NSLayoutAttribute.BottomMargin, relatedBy: NSLayoutRelation.Equal, toItem: cvScrollView, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0)
+            self.view.addConstraint(c2)
+            
             c1 = NSLayoutConstraint(item: btnDueTime, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: self.vDueTime, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0)
             vMain.addConstraint(c1)
-            vMain.layoutIfNeeded()
+            //vMain.layoutIfNeeded()
+            self.view.layoutIfNeeded()
             cSetAlready = true
         }
-        cvScrollView.contentSize = CGSize(width: 400, height: 800)
+        cvScrollView.contentSize = CGSize(width: 400, height: 700)
     }
     
     func showClearTimeButton () {
@@ -81,33 +92,93 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
             }, completion: nil)
     }
     
+    func setEdit () {
+        // Copy Data
+        withSpecificTime = _editAssignment.opTime
+        dueDate = _editAssignment.dueDate
+        
+        // Textfields
+        tfDesc.text = _editAssignment.desc
+        tvNotes.text = _editAssignment.note
+        
+        // Date Selector
+        let dt = nsDateToDate(dueDate)
+        lbDueDate_Day.text = "Due " + dateToString(dt)
+        if (Date.today() >= dt) {
+            lbDueDate_Day.textColor = cred
+        } else {
+            lbDueDate_Day.textColor = cblue
+        }
+        if (withSpecificTime) {
+            lbDueTime.text = "Deadline at \(dueDate.hour):\(dueDate.minute)"
+            btnDueTime.setTitle("Repick Due Time", forState: .Normal)
+            withSpecificTime = true
+//            pReminder.reloadAllComponents()
+            showClearTimeButton()
+        }
+        
+        // Type
+        pType.selectRow(_editAssignment.assignmentType, inComponent: 0, animated: true)
+        
+        // Priority
+        pPriority.selectRow(_editAssignment.priority, inComponent: 0, animated: true)
+        
+        // Class
+        for var i in 0 ... classes.count - 1 {
+            if (classes[i].name == _editAssignment.fromClass) {
+                pClass.selectRow(i, inComponent: 0, animated: true)
+                break
+            }
+        }
+        
+        // Repeat
+        pRepeat.selectRow(_editAssignment.repeatType, inComponent: 0, animated: true)
+        
+        // Reminder
+        reminderCustomDate = _editAssignment.reminder
+        reminderCustomTime = _editAssignment.reminder
+        updateCustomDateTime(true, updateTime: true)
+        
+        // UI
+        btnAdd.setTitle("    Done    ", forState: .Normal)
+    }
+    
     // MARK: - Override functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dueDate = NSCalendar.currentCalendar().dateByAddingUnit(.Day, value: 1, toDate: NSDate(), options: [])! // Tomorrow
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components([.Day , .Month , .Year], fromDate: dueDate)
+        //dueDate = NSCalendar.currentCalendar().dateByAddingUnit(.Day, value: 1, toDate: nstoday(), options: [])! // Tomorrow
+        dueDate = nstoday() + 1.days // Tomorrow
         let date: Date = Date(year : dueDate.year, month: dueDate.month, day: dueDate.day)
         lbDueDate_Day.text = "Due " + dateToString(date)
         
-        customDateTime = dueDate
+        reminderCustomDate = dueDate
         updateCustomDateTime(true, updateTime: true)
         
         // Delegates
         pType.delegate = self
         pType.dataSource = self
-        pReminder.delegate = self
-        pReminder.dataSource = self
+//        pReminder.delegate = self
+//        pReminder.dataSource = self
         pClass.delegate = self
         pClass.dataSource = self
         pRepeat.delegate = self
         pRepeat.dataSource = self
         tvNotes.delegate = self
+        pPriority.delegate = self
+        pPriority.dataSource = self
+        
+        // Keyboard
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+        notificationCenter.addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
         initViews()
+        if (_EDIT) {
+            setEdit()
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -127,17 +198,39 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Keyboard event
+    
+    func keyboardWillShow (notification: NSNotification) {
+        let userInfoDictionary = notification.userInfo
+        curKeyboardHeight = ((userInfoDictionary?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue().size.height)!
+        c2.constant = curKeyboardHeight
+        UIView.animateWithDuration(0.6) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func keyboardWillHide (notification: NSNotification) {
+        curKeyboardHeight = 0
+        c2.constant = 0
+        UIView.animateWithDuration(0.6) { 
+            self.view.layoutIfNeeded()
+        }
+    }
+
+    
     // MARK: - UIPickerView
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if (pickerView == pType) {
             return 6
-        } else if (pickerView == pReminder) {
-            return (withSpecificTime ? reminderType_withSpecificTime.count: reminderType.count)
+//        } else if (pickerView == pReminder) {
+//            return (withSpecificTime ? reminderType_withSpecificTime.count: reminderType.count)
         } else if (pickerView == pClass) {
             return classes.count
         } else if (pickerView == pRepeat) {
             return 4
+        } else if (pickerView == pPriority) {
+            return 3
         } else {
             return 1
         }
@@ -146,12 +239,14 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if (pickerView == pType) {
             return assignmentType[row]
-        } else if (pickerView == pReminder) {
-            return (withSpecificTime ? reminderType_withSpecificTime[row] :  reminderType[row])
+//        } else if (pickerView == pReminder) {
+//            return (withSpecificTime ? reminderType_withSpecificTime[row] :  reminderType[row])
         } else if (pickerView == pClass) {
             return classes[row].name
         } else if (pickerView == pRepeat) {
             return repeatType[row]
+        } else if (pickerView == pPriority) {
+            return priorityType[row]
         } else {
             return ""
         }
@@ -166,25 +261,23 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
         if (pickerView == pType) {
             cuiType = row
             lbAssignmentType.text = "Assignment Type : " + assignmentType[row]
-        } else if (pickerView == pReminder) {
+/*        } else if (pickerView == pReminder) {
             cuiReminder = row
             if ((withSpecificTime ? reminderType_withSpecificTime[row] : reminderType[row]) == "Custom") {
                 vReminderCustom.hidden = false
             } else {
                 vReminderCustom.hidden = true
             }
+ */
         } else if (pickerView == pClass) {
             cuiClass = row
             if (row == classes.count) {
-                
+                // Custom ???
             }
         } else if (pickerView == pRepeat) {
             cuiRepeat = row
-            /*
-            if（row == repeatType.count) {
-                return 0
-            }
- */
+        } else if (pickerView == pPriority) {
+            cuiPriority = row
         }
     }
     
@@ -245,35 +338,33 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
         selector.optionStyles.showMonth(false)
         selector.optionStyles.showYear(false)
         selector.optionStyles.showTime(true)
-        selector.optionCurrentDate = dueTime
+        selector.optionCurrentDate = dueDate
         presentViewController(selector, animated: true, completion: nil)
         currentWWCPicker = "Time"
     }
     
     func updateCustomDateTime(updateDate: Bool, updateTime: Bool) {
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components([.Year, .Month, .Day, .Hour, .Minute], fromDate: customDateTime)
         if (updateDate) {
-            btnReminderCustomDate.setTitle("\(components.month)/\(components.day)/\(components.year)", forState: .Normal)
+            btnReminderCustomDate.setTitle("\(reminderCustomDate.month)/\(reminderCustomDate.day)/\(reminderCustomDate.year)", forState: .Normal)
         }
         if (updateTime) {
-            btnReminderCustomTime.setTitle("\(components.hour):\(components.minute)", forState: .Normal)
+            btnReminderCustomTime.setTitle("\(reminderCustomTime.hour):\(reminderCustomTime.minute)", forState: .Normal)
         }
     }
     
     func WWCalendarTimeSelectorDone(selector: WWCalendarTimeSelector, date: NSDate) {
         if (currentWWCPicker == "Date") {
             dueDate = date
-            let calendar = NSCalendar.currentCalendar()
-            let components = calendar.components([.Day , .Month , .Year], fromDate: date)
-            let dt: Date = Date(year : components.year, month : components.month, day : components.day)
+            let dt = nsDateToDate(dueDate)
             lbDueDate_Day.text = "Due " + dateToString(dt)
             if (Date.today() >= dt) {
                 lbDueDate_Day.textColor = cred
             } else {
                 lbDueDate_Day.textColor = cblue
             }
-            customDateTime = calendar.dateByAddingUnit(.Minute, value: 15, toDate: dueDate, options: [])!
+            if (!reminderPicked) {
+                reminderCustomDate = date
+            }
             if (vReminderCustom.hidden) {
                 updateCustomDateTime(true, updateTime: false)
             }
@@ -284,29 +375,28 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
             lbDueTime.text = "Deadline at \(components.hour):\(components.minute)"
             btnDueTime.setTitle("Repick Due Time", forState: .Normal)
             withSpecificTime = true
-            pReminder.reloadAllComponents()
+//            pReminder.reloadAllComponents()
             showClearTimeButton()
-            customDateTime = calendar.dateByAddingUnit(.Minute, value: 15, toDate: dueDate, options: [])!
+            if (!reminderPicked) {
+                reminderCustomTime = date + 15.minute
+            }
             if (vReminderCustom.hidden) {
                 updateCustomDateTime(true, updateTime: true)
             }
-        } else if (currentWWCPicker == "ReminderDate") {
-        } else if (currentWWCPicker == "ReminderDateTime") {
-            let calender = NSCalendar.currentCalendar()
-            let components = calender.component([.Year, .Month, .Day, .Hour, .Minute], fromDate: date)
-            reminderType.insert("\(components.year)-\(components.month)-\(components.day) \(components.hour):\(components.minute)", atIndex: reminderType_withSpecificTime.count - 1)
         } else if (currentWWCPicker == "CustomDate") {
-            customDateTime = date
+            reminderPicked = true
+            reminderCustomDate = date
             updateCustomDateTime(true, updateTime: false)
         } else if (currentWWCPicker == "CustomTime") {
-            customDateTime = date
+            reminderPicked = true
+            reminderCustomTime = date
             updateCustomDateTime(false, updateTime: true)
         }
     }
     
     @IBAction func btnClearTime(sender: AnyObject) {
         withSpecificTime = false
-        pReminder.reloadAllComponents()
+//        pReminder.reloadAllComponents()
         hideClearTimeButton()
         lbDueTime.text = "No specific time"
         btnDueTime.setTitle("Pick Due Time (Optional)", forState: .Normal)
@@ -341,11 +431,7 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
     }
     
     @IBAction func sReminder_ValueChanged(sender: AnyObject) {
-        let alpha: CGFloat = (sReminder.on ? 0 : 0.8)
-        vReminderBlocker.hidden = sReminder.on
-        UIView.animateWithDuration(0.5) {
-            self.blurReminder.alpha = alpha
-        }
+        vReminderCustom.hidden = !sReminder.on
     }
     
     @IBAction func btnReminderCustomDate_Tapped(sender: AnyObject) {
@@ -358,7 +444,7 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
         selector.optionStyles.showTime(false)
         selector.optionCurrentDate = dueDate
         presentViewController(selector, animated: true, completion: nil)
-        currentWWCPicker = "CustomDate"
+        currentWWCPicker = "ReminderCustomDate"
     }
     
     @IBAction func btnReminderCustomTime(sender: AnyObject) {
@@ -369,9 +455,9 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
         selector.optionStyles.showMonth(false)
         selector.optionStyles.showYear(false)
         selector.optionStyles.showTime(true)
-        selector.optionCurrentDate = dueDate
+        selector.optionCurrentDate = dueTime
         presentViewController(selector, animated: true, completion: nil)
-        currentWWCPicker = "CustomTime"
+        currentWWCPicker = "ReminderCustomTime"
     }
     
     @IBAction func sRepeat_ValueChanged(sender: AnyObject) {
@@ -393,6 +479,7 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
     // MARK: - Finalize
     
     @IBAction func btnClose_Tapped(sender: AnyObject) {
+        // check
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -415,21 +502,38 @@ class FrmNewAssignment: UIViewController, UIGestureRecognizerDelegate, UIPickerV
     
     @IBAction func btnAdd_Tapped(sender: AnyObject) {
         if (checkField()) {
-            let newAssignment: Assignment = Assignment()
-            newAssignment.desc = tfDesc.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-            newAssignment.note = tvNotes.text
-            newAssignment.assignmentType = cuiType
-            newAssignment.fromClass = classes[cuiClass].name
-            newAssignment.repeatType = cuiRepeat
-            newAssignment.reminder = NSDate()
-            //let components = NSCalendar.currentCalendar().components([.Year, .Month, .Day], fromDate: dueDate)
-            //newAssignment.dueDate = Date(year: components.year, month: components.month, day: components.month)
-            //newAssignment.dueDate = Date.today()
+            if (_EDIT) {
+                var Ai: Int = 0
+                for var i in 0 ... assignments.count - 1 {
+                    if (assignments[i] == _editAssignment) {
+                        Ai = i
+                        break
+                    }
+                }
+                assignments[Ai].desc = tfDesc.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                assignments[Ai].note = tvNotes.text
+                assignments[Ai].assignmentType = cuiType
+                assignments[Ai].fromClass = classes[cuiClass].name
+                assignments[Ai].repeatType = cuiRepeat
+                assignments[Ai].reminder = NSDate(year: reminderCustomDate.year, month: reminderCustomDate.month, day: reminderCustomDate.day, hour: reminderCustomTime.hour, minute: reminderCustomTime.minute)
+                assignments[Ai].dueDate = dueDate
+                assignments[Ai].opTime = withSpecificTime
+                assignments[Ai].priority = cuiPriority
+            } else {
+                let newAssignment: Assignment = Assignment()
+                newAssignment.desc = tfDesc.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                newAssignment.note = tvNotes.text
+                newAssignment.assignmentType = cuiType
+                newAssignment.fromClass = classes[cuiClass].name
+                newAssignment.repeatType = cuiRepeat
+                newAssignment.reminder = NSDate(year: reminderCustomDate.year, month: reminderCustomDate.month, day: reminderCustomDate.day, hour: reminderCustomTime.hour, minute: reminderCustomTime.minute)
+                newAssignment.dueDate = dueDate
+                newAssignment.opTime = withSpecificTime
+                newAssignment.priority = cuiPriority
+                assignments.append(newAssignment)
+            }
             
-            newAssignment.dueDate = dueDate
-            assignments.append(newAssignment)
-            
-            curFrmAssignmentList.convertTable()
+            curFrmAssignmentList.convertTable(curFrmAssignmentList.showCompleted)
             curFrmAssignmentList.tableView.reloadData()
             saveSystemAssignments()
             self.dismissViewControllerAnimated(true, completion: nil)

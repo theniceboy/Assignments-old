@@ -13,6 +13,9 @@ class FrmAssignmentList: UITableViewController {
     // MARK: - Variables
     
     var tableAssignments: [[Assignment]] = [], tableDueDates: [NSDate] = [], tmpAssignments: [Assignment] = []
+    var showCompleted: Bool = false
+    var selectedAssignment: Assignment!
+    var goEdit: Bool = false
     
     // MARK: - Override functions
     
@@ -26,7 +29,7 @@ class FrmAssignmentList: UITableViewController {
             assignments = NSKeyedUnarchiver.unarchiveObjectWithData(nsAssignments as! NSData) as! [Assignment]
         }
         
-        convertTable()
+        convertTable(false)
         tableView.reloadData()
     }
 
@@ -37,7 +40,7 @@ class FrmAssignmentList: UITableViewController {
     
     // MARK: - Table view data source
     
-    func convertTable () {
+    func convertTable (showCompletd: Bool) {
         //print("________All Assignments:", assignments[0].dueDate)
         tableAssignments = []
         tableDueDates = []
@@ -45,7 +48,19 @@ class FrmAssignmentList: UITableViewController {
         if (assignments.count == 0) {
             return
         }
-        tmpAssignments = assignments
+        if (showCompletd) {
+            tmpAssignments = assignments
+        } else {
+            tmpAssignments = []
+            for var i in 0 ... assignments.count - 1 {
+                if (!assignments[i].completed) {
+                    tmpAssignments.append(assignments[i])
+                }
+            }
+        }
+        if (tmpAssignments.count == 0) {
+            return
+        }
         if (tmpAssignments.count > 1) {
             var i: Int, j: Int
             for i in 0 ... tmpAssignments.count - 2 {
@@ -57,18 +72,22 @@ class FrmAssignmentList: UITableViewController {
             }
             for i in 0 ... tmpAssignments.count - 2 {
                 tmpTableRow.append(tmpAssignments[i])
-                if (tmpAssignments[i].dueDate != tmpAssignments[i + 1].dueDate) {
+                if (!nsdateEqual(tmpAssignments[i].dueDate, d2: tmpAssignments[i + 1].dueDate)) {
                     tableAssignments.append(tmpTableRow)
                     tableDueDates.append(tmpAssignments[i].dueDate)
                     tmpTableRow = []
                 }
             }
             i = tmpAssignments.count - 1
-            if (tmpTableRow.count == 0) {
-                tableDueDates.append(tmpAssignments[i].dueDate)
-            }
             tmpTableRow.append(tmpAssignments[i])
             tableAssignments.append(tmpTableRow)
+            tableDueDates.append(tmpAssignments[i].dueDate)
+            /*
+            a:103 b:104
+            tmpTableRow [b]
+            tableDueDates [103]
+            tableAssignments [[a]]
+            */
         } else {
             tmpTableRow.append(tmpAssignments[0])
             tableDueDates.append(tmpAssignments[0].dueDate)
@@ -87,13 +106,12 @@ class FrmAssignmentList: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("AssignmentID", forIndexPath: indexPath) as! FrmAssignmentList_Cell
-
         cell.assignment = tableAssignments[indexPath.section][indexPath.row]
-        
         return cell
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        //print(tableDueDates[section].year, tableDueDates[section].month, tableDueDates[section].day)
         return dateToString(Date(year: tableDueDates[section].year, month: tableDueDates[section].month, day: tableDueDates[section].day))
     }
 
@@ -104,18 +122,37 @@ class FrmAssignmentList: UITableViewController {
         return true
     }
     */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedAssignment = tableAssignments[indexPath.section][indexPath.row]
+        goEdit = true
+        performSegueWithIdentifier("sFrmNewAssignment", sender: tableView)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
-    */
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == .Delete) {
+            // Delete the row from the data source
+            let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
+            alert.addButton("Delete") {
+                for var i in 0 ... assignments.count - 1 {
+                    if (assignments[i] == self.tableAssignments[indexPath.section][indexPath.row]) {
+                        assignments.removeAtIndex(i)
+                        break
+                    }
+                }
+                self.convertTable(false)
+                saveSystemAssignments()
+                //tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                tableView.reloadData()
+            }
+            alert.addButton("Cancel") {
+                //
+            }
+            alert.showWarning("Are you sure you want to delete?", subTitle: "You cannot undo this action")
+        }
+    }
+ 
 
     /*
     // Override to support rearranging the table view.
@@ -132,14 +169,32 @@ class FrmAssignmentList: UITableViewController {
     }
     */
 
-    /*
+    // IBActions
+    
+    @IBAction func TMPShowCompletedTapped(sender: AnyObject) {
+        showCompleted = !showCompleted
+        convertTable(showCompleted)
+        tableView.reloadData()
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction func btnAdd_Tapped(sender: AnyObject) {
+        goEdit = false
+    }
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if (goEdit) {
+            let vc: FrmNewAssignment = segue.destinationViewController as! FrmNewAssignment
+            vc._EDIT = true
+            vc._editAssignment = selectedAssignment
+            goEdit = false
+        }
     }
-    */
+    
 
 }

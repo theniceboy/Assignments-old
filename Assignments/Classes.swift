@@ -33,6 +33,16 @@ class Class: NSObject {
         aCoder.encodeInteger(period, forKey: "period")
     }
 }
+/*
+func classString (id: Int) -> String {
+    for var i in 0 ... classes.count - 1 {
+        if (classes[i].id == id) {
+            return classes[i].name
+        }
+    }
+    return ""
+}
+ */
 
 func saveSystemClasses () {
     NSUserDefaults.standardUserDefaults().setObject(NSKeyedArchiver.archivedDataWithRootObject(classes), forKey: "classes")

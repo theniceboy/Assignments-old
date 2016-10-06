@@ -43,6 +43,10 @@ func dateW (date: Date) -> Int {
     return Int(calendar.components(NSCalendarUnit.WeekOfYear, fromDate: dt).weekOfYear)
 }
 
+func nsDateToDate (dt: NSDate) -> Date {
+    return Date(year : dt.year, month : dt.month, day : dt.day)
+}
+
 func dateToString (dt: Date) -> String {
     //if (date.toString(format: cdf) == unlimited_date_str) {
     //    return "unlimited"
@@ -67,4 +71,8 @@ func dateToString (dt: Date) -> String {
         return str + advanced_str
     }
     return "\(dt.month())/\(dt.day())/\(dt.year())" + advanced_str
+}
+
+func nsdateEqual (d1: NSDate, d2: NSDate) -> Bool {
+    return (d1.year == d2.year && d1.month == d2.month && d1.day == d2.day) ? true : false
 }
